@@ -14,7 +14,7 @@ import {
 
 import LogoPepe from '../assets/logo-pepe.svg';
 
-const Receipts = () => {
+const Receipt = () => {
   const [fund, setFund] = useState(null);
   const [date, setDate] = useState(null);
   const [money, setMoney] = useState(null);
@@ -69,4 +69,4 @@ const Receipts = () => {
   );
 };
 
-export default Receipts;
+export default Receipt;

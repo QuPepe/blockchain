@@ -277,7 +277,7 @@ const FundraiserCard = ({ fundraiser }) => {
             {dateStr} — ${usd}
           </Typography>
           <Button variant="contained" color="primary" sx={{ mt: 0.5 }}>
-            <Link to="/fundraising/receipts"
+            <Link to="/fundraising/receipt"
               state={{ fund: contractData.fundName, date: tsSec, money: usd }}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >

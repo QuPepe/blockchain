@@ -5,7 +5,7 @@ import { Link, Stack, Box } from '@mui/material';
 import LogoBTC from './assets/logo-btc.svg';
 import LogoPepe from './assets/logo-pepe.svg';
 import PageViewFundraiser from './fundraising';
-import PageReceipts from './fundraising/Receipts';
+import PageReceipt from './fundraising/Receipt';
 import PageCreateFundraiser from './fundraising/CreateFundraiser';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PageViewFundraiser />} />
         <Route path="/fundraising/create-fundraiser" element={<PageCreateFundraiser />} />
-        <Route path="/fundraising/receipts" element={<PageReceipts />} />
+        <Route path="/fundraising/receipt" element={<PageReceipt />} />
       </Routes>
     </section>
   );
