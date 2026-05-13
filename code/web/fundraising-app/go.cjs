@@ -45,14 +45,14 @@ function exportHelloArtifact() {
   // __dirname: the directory path of the current file
   // __dirname: ensures file paths are resolved relative to this file (not the current working directory)
   fs.writeFileSync(
-    path.join(__dirname, './src/abi/FundraiserFactory-abi.json'),
+    path.join(__dirname, './src/fundraising/abi/FundraiserFactory-abi.json'),
     JSON.stringify(abi, null, 2) // Convert object to JSON string with readable formatting (2-space indent)
   );
 
   // Write contract address to a separate JSON file
   // This allows the frontend to know where the contract is deployed
   fs.writeFileSync(
-    path.join(__dirname, './src/abi/FundraiserFactory-addr.json'),
+    path.join(__dirname, './src/fundraising/abi/FundraiserFactory-addr.json'),
     JSON.stringify({ address }, null, 2)
   );
 
