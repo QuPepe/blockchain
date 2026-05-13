@@ -8,8 +8,8 @@ import { fundraiserFactoryContractAddr } from './index.jsx';
 
 const CreateFundraiser = () => {
   const [fundName, setFundName] = useState('');
-  const [fundURL, setFundURL] = useState('');
-  const [fundImageURL, setFundImageURL] = useState('');
+  const [fundUrl, setFundUrl] = useState('');
+  const [fundImageUrl, setFundImageUrl] = useState('');
   const [fundDescription, setFundDescription] = useState('');
   const [fundBeneficiary, setFundBeneficiary] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -22,7 +22,7 @@ const CreateFundraiser = () => {
       }
 
       // 簡單欄位檢查
-      if (!fundName || !fundURL || !fundImageURL || !fundDescription || !fundBeneficiary) {
+      if (!fundName || !fundUrl || !fundImageUrl || !fundDescription || !fundBeneficiary) {
         alert('Please fill in all required fields.');
         return;
       }
@@ -49,8 +49,8 @@ const CreateFundraiser = () => {
       // 注意：參數順序要和 Solidity 定義一致
       const tx = await factory.createFundraiser(
         fundName,
-        fundURL,
-        fundImageURL,     // 若你的 Solidity 參數是 imageUrl / imageURL 都無所謂，順序才是關鍵
+        fundUrl,
+        fundImageUrl,
         fundDescription,
         fundBeneficiary
       );
@@ -62,8 +62,8 @@ const CreateFundraiser = () => {
 
       // 清空表單（可選）
       setFundName('');
-      setFundURL('');
-      setFundImageURL('');
+      setFundUrl('');
+      setFundImageUrl('');
       setFundDescription('');
       setFundBeneficiary('');
     } catch (err) {
@@ -99,15 +99,15 @@ const CreateFundraiser = () => {
             required
             label="Website"
             fullWidth
-            value={fundURL}
-            onChange={(e) => setFundURL(e.target.value)}
+            value={fundUrl}
+            onChange={(e) => setFundUrl(e.target.value)}
           />
           <TextField
             required
             label="Image URL"
             fullWidth
-            value={fundImageURL}
-            onChange={(e) => setFundImageURL(e.target.value)}
+            value={fundImageUrl}
+            onChange={(e) => setFundImageUrl(e.target.value)}
           />
           <TextField
             required

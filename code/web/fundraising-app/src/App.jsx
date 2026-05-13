@@ -12,8 +12,8 @@ function App() {
   return (
     <section id="center">
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-        <img src={LogoBTC} width="150" alt="Bitcoin logo" />
-        <img src={LogoPepe} width="150" alt="Pepe logo" />
+        <img src={LogoBTC} width={150} alt="Bitcoin logo" />
+        <img src={LogoPepe} width={150} alt="Pepe logo" />
       </Box>
 
       <Stack

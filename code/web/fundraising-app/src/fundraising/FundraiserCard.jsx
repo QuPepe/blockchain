@@ -272,7 +272,7 @@ const FundraiserCard = ({ fundraiser }) => {
       const dateStr = new Date(tsSec * 1000).toLocaleString();
 
       return (
-        <div key={i} style={{ marginBottom: 8 }}>
+        <div key={dateStr} style={{ marginBottom: 8 }}>
           <Typography variant="body2" color="text.secondary">
             {dateStr} — ${usd}
           </Typography>
@@ -296,12 +296,12 @@ const FundraiserCard = ({ fundraiser }) => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Donate to {contractData.fundName}</DialogTitle>
         <DialogContent>
-          <Box display="flex" flexdirection="column" gap={2}>
+          <Box display="flex" flexDirection="column" gap={2}>
             {contractData.fundImageUrl && (
               <img
                 src={contractData.fundImageUrl}
-                width="200"
-                height="130"
+                width={200}
+                height={130}
                 alt={contractData.fundName}
               />
             )}
@@ -351,7 +351,7 @@ const FundraiserCard = ({ fundraiser }) => {
         {contractData.fundImageUrl && (
           <CardMedia
             component="img"
-            height="250"
+            height={250}
             image={contractData.fundImageUrl}
             alt="Fundraiser Image"
             onClick={handleOpen}
@@ -361,7 +361,7 @@ const FundraiserCard = ({ fundraiser }) => {
           <Typography gutterBottom variant="h5">
             {contractData.fundName}
           </Typography>
-          <Stack spacing={2} alignitems="flex-start">
+          <Stack spacing={2} alignItems="flex-start">
             <Typography variant="body2" color="text.secondary">
               Description: {contractData.fundDescription}
             </Typography>

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
   Card,
@@ -50,11 +50,11 @@ const Receipt = () => {
               <Typography gutterBottom variant="h5">
                 Thank you for your donation to {fund}
               </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="body2" color="text.secondary">
                 Date of Donation: {date}
               </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Donation Value: ${parseFloat(money).toFixed(2)}
+              <Typography variant="body2" color="text.secondary">
+                Donation Value: ${money ? parseFloat(money).toFixed(2) : '0.00'}
               </Typography>
             </CardContent>
           </CardActionArea>

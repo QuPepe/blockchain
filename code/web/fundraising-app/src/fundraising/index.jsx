@@ -80,7 +80,7 @@ const Fundraising = () => {
           const browserProvider = new ethers.BrowserProvider(window.ethereum);
           const s = await browserProvider.getSigner();
           setSigner(s);
-          setAccounts(existing);
+          setAccounts([await s.getAddress()]);
         }
       } catch (err) {
         console.error('Silent wallet check failed:', err);
@@ -130,7 +130,7 @@ const Fundraising = () => {
           Fundraising Campaigns
         </Typography>
 
-        <Box display="flex" justifycontent="center">
+        <Box display="flex" justifyContent="center">
           <Button onClick={connectWallet} variant="contained">
             {accounts.length > 0
               ? `Connected: ${accounts[0].slice(0, 6)}...${accounts[0].slice(-4)}`
@@ -138,23 +138,20 @@ const Fundraising = () => {
           </Button>
         </Box>
 
-        <Grid container spacing={2} justifycontent="center" sx={{ mt: 2 }}>
+        <Grid container spacing={2} justifyContent="center" sx={{ mt: 2 }}>
           {funds.map((fundraiser) => (
             <Grid
-              gridcolumn={{
-                xs: 'span 12',
-                sm: 'span 6',
-                md: 'span 4',
-                lg: 'span 3',
-                xl: 'span 2',
-              }}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              xl={2}
               key={fundraiser}
             >
               <FundraiserCard
                 fundraiser={fundraiser}
                 connectedAccount={accounts[0]}
-              // If your card will write to chain, pass signer too:
-              // signer={signer}
               />
             </Grid>
           ))}
