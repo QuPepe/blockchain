@@ -39,7 +39,7 @@
 
 ## Deploy Your ERC‑20 Contract on Sepolia (an Ethereum Testnet)
 + Prerequisites
-  1. Install a MetaMask wallet and generate a new account. (Use THIS account in the follwoing exercise!)
+  1. MetaMask wallet -> Networks -> Show test networks -> Select network - > Sepolia
   2. Visit [Google Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia) or [Alchemy Sepolia Faucet](https://www.alchemy.com/faucets/ethereum-sepolia) to obtain Sepolia ETH (Ethereum test tokens).
      - You can obtain only 0.05 Sepolia ETH per day or 0.1 Sepolia ETH / 72 hrs.
      - If there is any error, try to use another Google account.
