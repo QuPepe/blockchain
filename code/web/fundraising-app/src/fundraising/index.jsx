@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react';
 import { ethers } from 'ethers';
 
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -130,7 +129,12 @@ const Fundraising = () => {
           Fundraising Campaigns
         </Typography>
 
-        <Box display="flex" justifyContent="center">
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <Button onClick={connectWallet} variant="contained">
             {accounts.length > 0
               ? `Connected: ${accounts[0].slice(0, 6)}...${accounts[0].slice(-4)}`
@@ -138,24 +142,37 @@ const Fundraising = () => {
           </Button>
         </Box>
 
-        <Grid container spacing={2} justifyContent="center" sx={{ mt: 2 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 2,
+            mt: 2,
+          }}
+        >
           {funds.map((fundraiser) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              xl={2}
+            <Box
               key={fundraiser}
+              sx={{
+                width: {
+                  xs: '100%',
+                  sm: '48%',
+                  md: '31%',
+                  lg: '31%',
+                  xl: '31%',
+                },
+                display: 'flex',
+                justifyContent: 'center',
+              }}
             >
               <FundraiserCard
                 fundraiser={fundraiser}
                 connectedAccount={accounts[0]}
               />
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Paper>
     </Container>
   );

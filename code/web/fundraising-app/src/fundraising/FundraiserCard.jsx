@@ -296,7 +296,13 @@ const FundraiserCard = ({ fundraiser }) => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Donate to {contractData.fundName}</DialogTitle>
         <DialogContent>
-          <Box display="flex" flexDirection="column" gap={2}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+            }}
+          >
             {contractData.fundImageUrl && (
               <img
                 src={contractData.fundImageUrl}
@@ -361,7 +367,12 @@ const FundraiserCard = ({ fundraiser }) => {
           <Typography gutterBottom variant="h5">
             {contractData.fundName}
           </Typography>
-          <Stack spacing={2} alignItems="flex-start">
+          <Stack
+            spacing={2}
+            sx={{
+              alignItems: 'flex-start',
+            }}
+          >
             <Typography variant="body2" color="text.secondary">
               Description: {contractData.fundDescription}
             </Typography>
