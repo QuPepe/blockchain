@@ -14,7 +14,7 @@ const broadcastPath = 'D:/Solidity/hello/broadcast/Hello.s.sol/31337/run-latest.
  * 2. Reads the Foundry broadcast file (to get deployed address)
  * 3. Writes both ABI and address into JSON files for the frontend
  */
-function exportHelloArtifact() {
+function exportContractArtifact() {
     // Read and parse the compiled contract artifact (JSON)
     // This file contains ABI, bytecode, and metadata
     const artifact = JSON.parse(fs.readFileSync(abiPath, 'utf-8'));
@@ -58,4 +58,4 @@ function exportHelloArtifact() {
 }
 
 // Execute the function
-exportHelloArtifact();
+exportContractArtifact();
