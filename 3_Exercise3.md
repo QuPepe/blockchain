@@ -83,6 +83,7 @@
 Notes:
 + Install the `React Developer Tools` plugin in your browser for advanced debugging.
 + `forge clean` can remove the build artifacts and cache directories.
++ To see details of a transaction in MetaMask: Settings -> Transactions -> Show hex data
 
 Think:
 How to automatically update fundraiser cards after a fundraising campaign is updated (e.g., donated)?
