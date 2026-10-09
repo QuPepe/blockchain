@@ -49,7 +49,7 @@
   ```
 + Install reuqired libraries.
   ```
-  npm install react-router-dom @mui/material @emotion/react @emotion/styled ethers cryptocompare
+  npm install react-router-dom @mui/material @emotion/react @emotion/styled ethers
   ```
 + Open Visual Studio Code.
   ```
