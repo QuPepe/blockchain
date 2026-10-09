@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
 import { ethers } from 'ethers';
-import cc from 'cryptocompare';
 
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -118,10 +117,21 @@ const FundraiserCard = ({ fundraiser }) => {
 
       // 匯率 & 總額 (USD)
       try {
-        const prices = await cc.price('ETH', ['USD']);
-        setExchangeRate(prices.USD);
+        const response = await fetch(
+          'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const ethUsd = data.ethereum.usd;
+
+        setExchangeRate(ethUsd);
+
         const eth = Number(ethers.formatEther(fundTotalDonationsWei));
-        setTotalDonations((prices.USD * eth).toFixed(2));
+        setTotalDonations((ethUsd * eth).toFixed(2));
       } catch (error) {
         console.error('Exchange rate fetch error:', error);
       }
