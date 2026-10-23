@@ -1,5 +1,6 @@
 # Learning Resources
 + [Learn Solidity](https://www.alchemy.com/university/courses/solidity) & [GitHub](https://github.com/alchemyplatform/learn-solidity-presentations)
++ [Smart Contracts and Solidity](https://masteringethereum.xyz/chapter_7.html)
 + [Solidity (Official)](https://soliditylang.org/)
 + [Foundry](https://book.getfoundry.sh/)
 + [Foundry Full Course](https://github.com/Cyfrin/foundry-full-course-cu)
@@ -7,13 +8,9 @@
 + [Ethers.js documents](https://docs.ethers.org/v6/)
 
 # Supplements
-+ [Ethereum basics](https://docs.alchemy.com/docs/ethereum-basics)
-+ [How do smart contracts communicate?](https://docs.alchemy.com/docs/smart-contract-communication)
 + [Application Binary Interfaces](https://docs.ethers.org/v6/basics/abi/)
 + [Introduction to Smart Contracts](https://docs.soliditylang.org/en/develop/introduction-to-smart-contracts.html)
 + [Solidity by Example](https://docs.soliditylang.org/en/develop/solidity-by-example.html)
-+ [What are multi-signature contracts?](https://docs.alchemy.com/docs/multi-sig-contracts)
-+ [What is an ERC-20 token?](https://docs.alchemy.com/docs/what-is-erc-20)
 + [Console logging in Foundry](https://book.getfoundry.sh/reference/forge-std/console-log)
 + [WTF Solidity](https://github.com/AmazingAng/WTF-Solidity)
 + [Develop an NFT Collection](https://updraft.cyfrin.io/courses/advanced-foundry/how-to-create-an-NFT-collection/introduction-to-nfts)
