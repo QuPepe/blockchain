@@ -17,9 +17,6 @@
 + [Develop an NFT Collection, By TA](https://github.com/jing-yuan-nccu/foundry-nft)
 + [JavaScript: Promise 介紹](https://www.casper.tw/development/2020/10/16/async-await/)
 + [JavaScript: async / await 介紹](https://www.casper.tw/development/2020/10/16/async-await/)
-+ [React 是什麼？2025 完整新手學習指南](https://www.thisweb.dev/post/what-is-react)
-+ [useState 教學 - React 的狀態與更新](https://www.thisweb.dev/post/react-usestate)
-+ [useEffect 教學 - React 的副作用管理](https://www.thisweb.dev/post/react-useeffect)
 + [React: useState](https://react.dev/reference/react/useState)
 + [React: userEffect](https://react.dev/reference/react/useEffect)
 
