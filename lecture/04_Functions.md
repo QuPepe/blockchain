@@ -4,15 +4,26 @@
 
 Solidity uses **specifiers** and **keywords** to describe how functions and state variables can be accessed, how functions interact with contract state, and how functions participate in inheritance. Separately, Solidity supports **custom function modifiers**, which wrap reusable checks or behavior around function execution.
 
-**Key distinction:** `public`, `view`, and `virtual` are not custom function modifiers. A modifier such as `onlyOwner` is declared using the `modifier` keyword.
-
 ---
 
 ## 1. General function structure
 
+A Solidity function includes:
+
+- **Name**
+- **Parameters**
+- **Visibility specifier:** `public`, `private`, `internal`, `external`
+- **State mutability specifier:** `pure`, `view`, `payable`, or none
+- **Inheritance-related keywords (optional):** `virtual`, `override`
+- **Custom function modifiers (optional):** e.g., `onlyOwner`
+- **Return types (optional)**
+- **Function body**
+
+**Syntax:**
+
 ```solidity
 function FunctionName([parameters])
-    [visibility]
+    visibility
     [state mutability]
     [virtual] [override]
     [custom modifiers]
@@ -22,13 +33,13 @@ function FunctionName([parameters])
 }
 ```
 
-This is a **teaching template**, not a literal Solidity declaration: square brackets indicate optional components. Not every combination is valid, and certain elements can appear in different permitted orders.
+**Note:** This is a simplified teaching template, not executable Solidity code. Square brackets indicate optional components; visibility is required for ordinary named functions. Not all combinations are valid, and some elements may appear in different permitted orders.
 
 **Example:**
 
 ```solidity
-function getPrice(uint256 x) public pure returns (uint256) {
-    return x;
+function double(uint256 x) public pure returns (uint256) {
+    return x * 2;
 }
 ```
 
@@ -149,7 +160,7 @@ contract Derived is Base {
 
 ## 5. Custom function modifiers
 
-A **function modifier** is a reusable block of code declared with the `modifier` keyword. It can check conditions before or after a function body runs. Modifiers are commonly used for access control and reentrancy protection.
+A **function modifier** is a reusable block of code declared with the `modifier` keyword. It can check conditions and execute code before or after a function body runs. Modifiers are commonly used for access control and reentrancy protection.
 
 ### 5.1 Basic example: `onlyOwner`
 
@@ -167,12 +178,12 @@ contract OwnedVault {
     }
 
     function withdraw() public onlyOwner {
-        // Withdrawal logic goes here.
+        // Example only: withdrawal logic is not implemented.
     }
 }
 ```
 
-When `withdraw()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
+This example demonstrates access control only; it does not transfer Ether. When `withdraw()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
 
 ### 5.2 What does `_` mean?
 
@@ -226,7 +237,7 @@ function transferOwnership(address newOwner) public onlyOwner {
 | Contract-level keyword | `abstract` | Declare an abstract contract. |
 | Custom function modifiers | `onlyOwner`, `nonReentrant` | Apply reusable execution checks or behavior. |
 
-**Takeaway:** A **specifier** describes properties of a declaration; a **custom function modifier** adds reusable logic to function execution. Avoid calling all these constructs simply “modifiers.”
+**Takeaway:** Specifiers and keywords describe declaration properties and inheritance behavior; custom function modifiers add reusable logic to function execution. Avoid calling all these constructs simply “modifiers.”
 
 ## References
 
