@@ -33,7 +33,7 @@ function FunctionName([parameters])
 }
 ```
 
-**Note:** This is a simplified teaching template, not executable Solidity code. Square brackets `[]` indicate optional components; curly braces `{}` around alternatives indicate a required choice; and `|` indicates alternatives. Visibility is required for ordinary named functions. The curly braces around the function body are actual Solidity syntax.
+**Note:** Square brackets `[]` indicate optional components; curly braces `{}` around alternatives indicate a required choice; and `|` indicates alternatives.
 
 **Example:**
 
