@@ -54,9 +54,9 @@ A Solidity function includes:
 - **Name**
 - **Parameters**
 - **Visibility specifier:** `public`, `private`, `internal`, `external`
-- **State mutability specifier:** `pure`, `view`, `payable`, or none
-- **Inheritance specifiers (optional):** `virtual`, `override`
-- **Function modifiers (optional):** e.g., `onlyOwner`
+- **State mutability specifier (optional):** `pure`, `view`, `payable`
+- **Inheritance-related keywords (optional):** `virtual`, `override`
+- **Custom function modifiers (optional):** e.g., `onlyOwner`
 - **Return types (optional)**
 - **Function body**
 
@@ -64,20 +64,22 @@ A Solidity function includes:
 
 ```solidity
 function FunctionName([parameters])
-    [visibility]
-    [state mutability]
+    {public | private | internal | external}
+    [pure | view | payable]
     [virtual] [override]
-    [modifiers]
+    [custom modifiers]
     [returns (return types)]
 {
     // Function body
 }
 ```
 
+**Note:** Square brackets `[]` indicate optional components; curly braces `{}` around alternatives indicate a required choice; and `|` indicates alternatives.
+
 **Example:**
 
 ```solidity
-function double(uint x) public pure returns (uint) {
+function double(uint256 x) public pure returns (uint256) {
     return x * 2;
 }
 ```
