@@ -1,7 +1,5 @@
 # Solidity Basics
 
-This page is based on [DeFi Learning](https://rdi.berkeley.edu/berkeley-defi/assets/material/Lecture%203%20Slides.pdf), P17-P25.
-
 ## 1. Overview
 
 This section introduces the core components of Solidity programming:
