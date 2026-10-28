@@ -139,7 +139,7 @@ Mutability describes whether a function may access or change state, or whether a
 - `pure` → Cannot read or modify contract state; also cannot access most execution-context information (e.g., `msg.sender` or `block.timestamp`).
 - `payable` → May receive ETH with the call and may read and modify state.
 
-**Note:** `public` is a *visibility* specifier, not a mutability specifier. A function without `pure`, `view`, or `payable` is nonpayable by default.
+**Note:** A function without `pure`, `view`, or `payable` is nonpayable by default.
 
 **Example:**
 
@@ -183,10 +183,9 @@ constructor() {
 
 **Important notes:**
 
-1. `constant` and `immutable` are not visibility specifiers.
-2. `constant` values must be compile-time constants; `immutable` values may be determined during deployment.
-3. `constant` and `immutable` apply to state variables, not local variables.
-4. A `private` or `internal` state variable is not confidential: its on-chain data may still be inspected.
+1. `constant` values must be compile-time constants; `immutable` values may be determined during deployment.
+2. `constant` and `immutable` apply to state variables, not local variables.
+3. A `private` or `internal` state variable is not confidential: its on-chain data may still be inspected.
 
 ---
 
