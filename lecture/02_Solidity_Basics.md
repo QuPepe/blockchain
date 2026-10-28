@@ -49,7 +49,7 @@ Solidity is:
 
 ---
 
-## 4. Function structure
+## 4. Function Structure
 
 A Solidity function includes:
 
