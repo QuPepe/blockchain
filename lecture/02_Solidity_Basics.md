@@ -119,6 +119,7 @@ constructor(address initialOwner) {
 ⚠️ Important:
 
 > "private" does NOT mean secret
+
 > Data is still visible on-chain
 
 ---
