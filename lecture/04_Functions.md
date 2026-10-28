@@ -1,4 +1,4 @@
-# Function specifiers and modifiers in Solidity
+# Functions
 
 ## Introduction
 
@@ -8,7 +8,33 @@ Solidity uses **specifiers** and **keywords** to describe how functions and stat
 
 ---
 
-## 1. Visibility specifiers
+## 1. General function structure
+
+```solidity
+function FunctionName([parameters])
+    [visibility]
+    [state mutability]
+    [virtual] [override]
+    [custom modifiers]
+    [returns (return types)]
+{
+    // Function body
+}
+```
+
+This is a **teaching template**, not a literal Solidity declaration: square brackets indicate optional components. Not every combination is valid, and certain elements can appear in different permitted orders.
+
+**Example:**
+
+```solidity
+function getPrice(uint256 x) public pure returns (uint256) {
+    return x;
+}
+```
+
+---
+
+## 2. Visibility specifiers
 
 Visibility determines **where** a function or state variable can be accessed.
 
@@ -44,7 +70,7 @@ contract VisibilityExample {
 
 ---
 
-## 2. State mutability specifiers
+## 3. State mutability specifiers
 
 State mutability describes whether a function may read or modify contract state, or receive Ether.
 
@@ -87,7 +113,7 @@ contract MutabilityExample {
 
 ---
 
-## 3. Inheritance-related keywords
+## 4. Inheritance-related keywords
 
 These keywords control whether a function may be overridden in a derived contract and whether a declaration overrides a base declaration.
 
@@ -121,11 +147,11 @@ contract Derived is Base {
 
 ---
 
-## 4. Custom function modifiers
+## 5. Custom function modifiers
 
 A **function modifier** is a reusable block of code declared with the `modifier` keyword. It can check conditions before or after a function body runs. Modifiers are commonly used for access control and reentrancy protection.
 
-### 4.1 Basic example: `onlyOwner`
+### 5.1 Basic example: `onlyOwner`
 
 ```solidity
 contract OwnedVault {
@@ -148,7 +174,7 @@ contract OwnedVault {
 
 When `withdraw()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
 
-### 4.2 What does `_` mean?
+### 5.2 What does `_` mean?
 
 The `_;` statement marks the point where the modified function body executes.
 
@@ -162,7 +188,7 @@ modifier example() {
 
 A modifier can therefore run code **before and after** the function body. If execution reverts, the transaction's state changes are rolled back.
 
-### 4.3 Custom errors: a gas-efficient alternative
+### 5.3 Custom errors: a gas-efficient alternative
 
 Using a custom error often costs less gas than reverting with a string message.
 
@@ -175,7 +201,7 @@ modifier onlyOwner() {
 }
 ```
 
-### 4.4 Example: transfer ownership
+### 5.4 Example: transfer ownership
 
 The following function uses the previously defined `owner` variable and `onlyOwner` modifier.
 
@@ -187,32 +213,6 @@ function transferOwnership(address newOwner) public onlyOwner {
 ```
 
 **Security note:** Access-control modifiers should be tested carefully. A modifier is not automatically secure just because it is reusable.
-
----
-
-## 5. General function structure
-
-```solidity
-function FunctionName([parameters])
-    [visibility]
-    [state mutability]
-    [virtual] [override]
-    [custom modifiers]
-    [returns (return types)]
-{
-    // Function body
-}
-```
-
-This is a **teaching template**, not a literal Solidity declaration: square brackets indicate optional components. Not every combination is valid, and certain elements can appear in different permitted orders.
-
-**Example:**
-
-```solidity
-function getPrice(uint256 x) public pure returns (uint256) {
-    return x;
-}
-```
 
 ---
 
