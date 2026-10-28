@@ -20,7 +20,7 @@ Solidity is a **high-level language**.
 
 It is compiled into:
 
-→ **Ethereum Virtual Machine (EVM) bytecode**
+→ **Ethereum virtual machine (EVM) bytecode**
 
 Flow:
 
@@ -37,7 +37,7 @@ Key idea:
 Solidity is:
 
 - **Statically typed**
-- Similar to **Java / C / Rust**
+- Similar to **Java / C / C++ / Rust**
 - Unlike **Python / JavaScript**
 
 ### Basic Types
