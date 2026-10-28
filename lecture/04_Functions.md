@@ -13,7 +13,7 @@ A Solidity function includes:
 - **Name**
 - **Parameters**
 - **Visibility specifier:** `public`, `private`, `internal`, `external`
-- **State mutability specifier:** `pure`, `view`, `payable`, or none
+- **State mutability specifier (optional):** `pure`, `view`, `payable`
 - **Inheritance-related keywords (optional):** `virtual`, `override`
 - **Custom function modifiers (optional):** e.g., `onlyOwner`
 - **Return types (optional)**
@@ -23,8 +23,8 @@ A Solidity function includes:
 
 ```solidity
 function FunctionName([parameters])
-    visibility
-    [state mutability]
+    {public | private | internal | external}
+    [pure | view | payable]
     [virtual] [override]
     [custom modifiers]
     [returns (return types)]
@@ -33,7 +33,7 @@ function FunctionName([parameters])
 }
 ```
 
-**Note:** This is a simplified teaching template, not executable Solidity code. Square brackets indicate optional components; visibility is required for ordinary named functions. Not all combinations are valid, and some elements may appear in different permitted orders.
+**Note:** This is a simplified teaching template, not executable Solidity code. Square brackets `[]` indicate optional components; curly braces `{}` around alternatives indicate a required choice; and `|` indicates alternatives. Visibility is required for ordinary named functions. The curly braces around the function body are actual Solidity syntax.
 
 **Example:**
 
@@ -177,13 +177,13 @@ contract OwnedVault {
         _;
     }
 
-    function withdraw() public onlyOwner {
-        // Example only: withdrawal logic is not implemented.
+    function restrictedAction() public onlyOwner {
+        // Only the contract owner can execute this function.
     }
 }
 ```
 
-This example demonstrates access control only; it does not transfer Ether. When `withdraw()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
+This example demonstrates access control only; it does not transfer Ether. When `restrictedAction()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
 
 ### 5.2 What does `_` mean?
 
