@@ -10,8 +10,8 @@ This section introduces the core components of Solidity programming:
 - Data types
 - Functions
 - Constructors
-- Visibility modifiers
-- Mutability modifiers
+- Visibility specifiers
+- Mutability specifiers
 - Events
 
 ---
@@ -104,7 +104,7 @@ constructor(address initialOwner) {
 
 ---
 
-## 6. Visibility Modifiers
+## 6. Visibility Specifiers
 
 ### For Functions
 
@@ -123,7 +123,7 @@ constructor(address initialOwner) {
 
 ---
 
-## 7. Mutability Modifiers
+## 7. Mutability Specifiers
 
 Define whether a function can read or modify contract state.
 
