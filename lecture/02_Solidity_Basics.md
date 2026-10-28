@@ -166,7 +166,7 @@ function deposit() public payable {
 ### For State Variables
 
 - `constant` → Must be initialized at declaration; its value cannot change.
-- `immutable` → Can be assigned at declaration or during construction; cannot change afterward.
+- `immutable` → Can be assigned at declaration or in the constructor; cannot change after deployment.
 - **Neither** → Mutable; can be reassigned after deployment.
 
 **Example:**
@@ -184,7 +184,7 @@ constructor() {
 **Important notes:**
 
 1. `constant` values must be compile-time constants; `immutable` values may be determined during deployment.
-2. `constant` and `immutable` apply to state variables, not local variables.
+2. `constant` and `immutable` are only supported for state variables, not local variables.
 3. A `private` or `internal` state variable is not confidential: its on-chain data may still be inspected.
 
 ---
@@ -215,10 +215,10 @@ mapping(address => uint256) balances;
 
 ## 9. Events
 
-Two ways to observe contract state:
+Two ways to observe smart contract information:
 
-1. View functions (read state)
-2. Event logs (listen to activities)
+1. **View functions:** Read the current contract state.
+2. **Event logs:** Track events emitted during contract execution.
 
 ### Event Example (Domain Name Registration)
 
@@ -240,7 +240,7 @@ Key idea:
 
 - Solidity is compiled → EVM bytecode
 - It is statically typed
-- Functions have visibility and state mutability specifiers, so do state variables
+- Functions and state variables have different visibility and mutability specifiers
 - Constructor runs only once
-- Mapping is NOT iterable
+- Mappings do not support direct iteration over keys
 - Events are critical for off-chain interaction
