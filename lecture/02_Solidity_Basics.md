@@ -107,20 +107,21 @@ constructor(address initialOwner) {
 ## 6. Visibility Specifiers
 
 ### For Functions
+- public → Callable from anywhere (internally and externally).
+- private → Callable only within the defining contract.
+- internal → Callable within the defining contract and derived contracts.
+- external → Callable from outside the contract.
 
-- `public` → anyone can call
-- `internal` → only inside contract
+### For State Variables
+- public → Accessible internally and externally (via an auto-generated getter).
+- private → Accessible only within the defining contract.
+- internal → Accessible within the defining contract and derived contracts.
 
-### For Variables
-
-- `public` → auto-generated getter
-- `private` → no getter
-
-⚠️ Important:
-
-> "private" does NOT mean secret
-
-> Data is still visible on-chain
+### Important Notes
+1. Functions support all four visibility specifiers.
+2. State variables support only public, private, and internal.
+3. The default visibility for state variables is internal.
+4. Visibility restrictions do not make blockchain data confidential. Even private state variables can be inspected through blockchain data.
 
 ---
 
