@@ -191,24 +191,25 @@ constructor() {
 
 ## 8. Mapping
 
-Mapping is:
+A mapping is:
 
-> A key-value storage (like a hash table)
+> A key-value data structure (similar to a hash table).
 
-Example:
+**Example:**
 
 ```solidity
 mapping(address => uint256) balances;
 ```
 
-Key properties:
+**Key properties:**
 
-- Every key in a mapping always returns a value. If a key has never been assigned, it automatically returns the default value of its type (e.g., 0 for uint256, false for bool).
+- Every key returns a value. Keys that have not been assigned return the default value of the value type (e.g., `0` for `uint256`, `false` for `bool`).
 - No built-in way to:
-  - get length
-  - iterate over keys
+  - Get the number of assigned keys.
+  - Iterate over keys.
+- To enumerate keys, you must maintain a separate data structure (e.g., an array).
 
-👉 You must track keys manually
+**Note:** If you only need to look up values using known keys, no separate key tracking is necessary.
 
 ---
 
@@ -217,7 +218,7 @@ Key properties:
 Two ways to observe contract state:
 
 1. View functions (read state)
-2. Event logs (listen to activity)
+2. Event logs (listen to activities)
 
 ### Event Example (Domain Name Registration)
 
@@ -239,8 +240,7 @@ Key idea:
 
 - Solidity is compiled → EVM bytecode
 - It is statically typed
-- Functions have visibility and state mutability specifiers
-- State variables have visibility and may be declared `constant` or `immutable`
+- Functions have visibility and state mutability specifiers, so do state variables
 - Constructor runs only once
 - Mapping is NOT iterable
 - Events are critical for off-chain interaction
