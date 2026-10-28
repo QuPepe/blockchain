@@ -130,30 +130,63 @@ constructor(address initialOwner) {
 
 ## 7. Mutability Specifiers
 
-Define whether a function can read or modify contract state.
+Mutability describes whether a function may access or change state, or whether a state variable can be reassigned.
 
-> **State = contract storage (state variables)**
-> It does **not** include execution context (e.g., `msg`, `block`).
+### For Functions
 
-### `public`
-- Can read and modify state
+- **No mutability specifier (nonpayable)** → May read and modify state, but cannot receive ETH with the call.
+- `view` → May read state but cannot modify it.
+- `pure` → Cannot read or modify contract state; also cannot access most execution-context information (e.g., `msg.sender` or `block.timestamp`).
+- `payable` → May receive ETH with the call and may read and modify state.
 
-### `view`
-- Cannot modify state
-- Can read state
+**Note:** `public` is a *visibility* specifier, not a mutability specifier. A function without `pure`, `view`, or `payable` is nonpayable by default.
 
-### `pure`
-- Cannot read or modify state
-- Cannot access execution context (`msg`, `block`)
-- Pure computation only
-
-### Example
+**Example:**
 
 ```solidity
-function f1() public { ... } // read & write state
-function f2() public view { ... } // read state only
-function f3() public pure { ... } // no state or context access
+uint256 public balance;
+
+function setBalance(uint256 x) public {
+    balance = x;
+}
+
+function getBalance() public view returns (uint256) {
+    return balance;
+}
+
+function double(uint256 x) public pure returns (uint256) {
+    return x * 2;
+}
+
+function deposit() public payable {
+    balance += msg.value;
+}
 ```
+
+### For State Variables
+
+- `constant` → Must be initialized at declaration; its value cannot change.
+- `immutable` → Can be assigned at declaration or during construction; cannot change afterward.
+- **Neither** → Mutable; can be reassigned after deployment.
+
+**Example:**
+
+```solidity
+uint256 public constant MAX_SUPPLY = 1000;
+address public immutable owner;
+uint256 public balance;
+
+constructor() {
+    owner = msg.sender;
+}
+```
+
+**Important notes:**
+
+1. `constant` and `immutable` are not visibility specifiers.
+2. `constant` values must be compile-time constants; `immutable` values may be determined during deployment.
+3. `constant` and `immutable` apply to state variables, not local variables.
+4. A `private` or `internal` state variable is not confidential: its on-chain data may still be inspected.
 
 ---
 
@@ -207,7 +240,8 @@ Key idea:
 
 - Solidity is compiled → EVM bytecode
 - It is statically typed
-- Functions have visibility & mutability
+- Functions have visibility and state mutability specifiers
+- State variables have visibility and may be declared `constant` or `immutable`
 - Constructor runs only once
 - Mapping is NOT iterable
 - Events are critical for off-chain interaction
