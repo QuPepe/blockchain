@@ -41,12 +41,7 @@
 + [Foundry](https://book.getfoundry.sh/)
   - Open a Git Bash (in Windows) or a terminal (in Mac).
     ```
-    curl -L https://foundry.paradigm.xyz | bash
-    ```
-  - Exit the Git Bash or the terminal. Then, open it again.
-  - Install Foundry
-    ```
-    foundryup
+    curl -L https://foundry.paradigm.xyz | bash && foundryup
     ```
   - Note: If you use Mac (especially Intel CPU models), you may encounter the error message when installing Foundry: `Library not loaded: /usr/local/opt/libusb/lib/libusb-1.0.0.dylib`. You can type `brew install libusb` to solve this issue.
 + JavaScript
