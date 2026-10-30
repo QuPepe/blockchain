@@ -49,12 +49,15 @@
   - If you use nvm:
     ```
     nvm install lts
+    ```
     nvm list
+    ```
     nvm use <version>
     ```
   - Check the installed version.
     ```
     node -v
+    ```
     npm -v
     ```
 + Code editor
@@ -71,11 +74,13 @@
 + Create a root folder "Web" and enter it.
   ```
   mkdir Web
+  ```
   cd Web
   ```
 + Create a folder "vieweth" and enter it.
   ```
   mkdir vieweth
+  ```
   cd vieweth
   ```
 + Initialize a Node.js project.
