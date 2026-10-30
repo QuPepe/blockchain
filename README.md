@@ -92,9 +92,7 @@
   ```
   npm init
   ```
-  ```
 + Install Ethers.js.
-  ```
   ```
   npm install ethers
   ```
