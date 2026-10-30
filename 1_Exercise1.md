@@ -5,6 +5,8 @@
 + Create a folder `Solidity` and enter it.
   ```
   mkdir Solidity
+  ```
+  ```
   cd Solidity
   ```
 + Initialize a Foundry project.
@@ -14,6 +16,8 @@
 + Enter the new folder and open Visual Studio Code.
   ```
   cd hello
+  ```
+  ```
   code .
   ```
 + Move src/Counter.sol elsewhere (e.g., the `orig` folder). Edit `src/Hello.sol`.
@@ -48,6 +52,8 @@
 + Create a folder `hello` and enter it.
   ```
   mkdir hello
+  ```
+  ```
   cd hello
   ```
 + Initialize an npm project.
@@ -73,18 +79,36 @@
 + View the result.
   ```
   node listen
+  ```
+  ```
   node hello
   ```
 + Interact with the contract uisng the `cast` command.
   ```
   export CONTRACT_ADDR=<YOUR_CONTRACT_ADDRESS>
+  ```
+  ```
   cast call $CONTRACT_ADDR "greet()(string)" --rpc-url http://127.0.0.1:8545
+  ```
+  ```
   cast call $CONTRACT_ADDR "getMaxUint256()(uint256)" --rpc-url http://127.0.0.1:8545
+  ```
+  ```
   cast call $CONTRACT_ADDR "sumUpTo(uint256)(uint256)" 100 --rpc-url http://127.0.0.1:8545
+  ```
+  ```
   cast call $CONTRACT_ADDR "getName()(string)" --rpc-url http://127.0.0.1:8545
+  ```
+  ```
   cast send $CONTRACT_ADDR "setName(string)" "Pepe2" --rpc-url http://127.0.0.1:8545 --from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 --unlocked
+  ```
+  ```
   cast call $CONTRACT_ADDR "getName()(string)" --rpc-url http://127.0.0.1:8545
+  ```
+  ```
   cast send $CONTRACT_ADDR "setName(string)" "Pepe3" --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+  ```
+  ```
   cast call $CONTRACT_ADDR "getName()(string)" --rpc-url http://127.0.0.1:8545
   ```
 
@@ -124,6 +148,8 @@
 + Run `go.cjs` to get the contract's ABI and address.
   ```
   mkdir src/abi
+  ```
+  ```
   node go.cjs
   ```
 + View the web page.
