@@ -50,13 +50,16 @@
     ```
     nvm install lts
     ```
+    ```
     nvm list
+    ```
     ```
     nvm use <version>
     ```
   - Check the installed version.
     ```
     node -v
+    ```
     ```
     npm -v
     ```
@@ -75,11 +78,13 @@
   ```
   mkdir Web
   ```
+  ```
   cd Web
   ```
 + Create a folder "vieweth" and enter it.
   ```
   mkdir vieweth
+  ```
   ```
   cd vieweth
   ```
@@ -87,7 +92,9 @@
   ```
   npm init
   ```
+  ```
 + Install Ethers.js.
+  ```
   ```
   npm install ethers
   ```
