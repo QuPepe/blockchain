@@ -69,8 +69,9 @@
   ```
   code .
   ```
-+ Edit `config.js`. (Change the two paths, according to your environment.)
++ Edit `config.js`.
   (You can copy this file from `/code/web/hello/config.js`.)
++ Change the two paths (abiPath and broadcastPath), according to your environment.
 + View the result.
   ```
   node hello
@@ -147,6 +148,7 @@
   (Run the editor at the root folder of hello-app.)
 + Put `go.cjs` into your app root (i.e., hello-app).
   (You can copy this file from `/code/web/hello-app/go.cjs`.)
++ Change the two paths (abiPath and broadcastPath), according to your environment.
 + Run `go.cjs` to get the contract's ABI and address.
   ```
   mkdir src/abi
