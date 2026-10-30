@@ -127,6 +127,8 @@
 + Enter the new folder and install Vite.
   ```
   cd hello-app
+  ```
+  ```
   npm install
   ```
 + Install Ethers.js.
