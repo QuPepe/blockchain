@@ -13,6 +13,8 @@
 + Enter the new folder and open Visual Studio Code.
   ```
   cd fundraising
+  ```
+  ```
   code .
   ```
 + Move src/Counter.sol elsewhere (e.g., the `orig` folder).
@@ -45,6 +47,8 @@
 + Enter the new folder and install Vite.
   ```
   cd fundraising-app
+  ```
+  ```
   npm install
   ```
 + Install reuqired libraries.
