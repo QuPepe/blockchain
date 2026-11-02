@@ -15,6 +15,8 @@
 + Enter the new folder and install Vite.
   ```
   cd transfer-app
+  ```
+  ```
   npm install
   ```
 + Install Ethers.js.
@@ -46,9 +48,9 @@
 
 2. *Maybe Needed*: When you restart anvil, you may need to restart your browser and clear activity and nonce data in MetaMask.
 
-+ Firefox: `Settings -> Advanced -> Clear activity tab data`.
-+ Chrome: `Settings -> Developer tools -> Delete activity and nonce data`.
+   + Firefox: `Settings -> Advanced -> Clear activity tab data`.
+   + Chrome: `Settings -> Developer tools -> Delete activity and nonce data`.
 
-This can make sure the nonce data in anvil and in your MetaMask are consistent.
+   This can make sure the nonce data in anvil and in your MetaMask are consistent.
 
-See [this note](https://docs.metamask.io/metamask-connect/evm/guides/best-practices/run-devnet).
+   See [this note](https://docs.metamask.io/metamask-connect/evm/guides/best-practices/run-devnet).
