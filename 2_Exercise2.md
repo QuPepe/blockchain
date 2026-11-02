@@ -41,12 +41,14 @@
 
 ![image](/image/transfer.png)
 
-## Note (Maybe No Longer Needed)
+## Note
 1. In addition to transferring ETH through MetaMask and a React frontend, we can also send ETH directly from the command line using Foundry's `cast` tool. See [this tutorial](/lecture/cast_send_ether.md) for details.
 
-2. When you restart anvil, you may need to restart your browser and clear activity and nonce data in MetaMask.
+2. *Maybe Needed*: When you restart anvil, you may need to restart your browser and clear activity and nonce data in MetaMask.
 
 + Firefox: `Settings -> Advanced -> Clear activity tab data`.
 + Chrome: `Settings -> Developer tools -> Delete activity and nonce data`.
 
 This can make sure the nonce data in anvil and in your MetaMask are consistent.
+
+See [this note](https://docs.metamask.io/metamask-connect/evm/guides/best-practices/run-devnet).
