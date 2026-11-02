@@ -73,6 +73,8 @@
 + Run `go.cjs` to get the contract's ABI and address.
   ```
   mkdir src/fundraising/abi
+  ```
+  ```
   node go.cjs
   ```
 + View the web page.
