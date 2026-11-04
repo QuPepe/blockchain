@@ -1,13 +1,19 @@
 # Asynchronous Operations in JavaScript
 
-## What are Asynchronous Operations?
-Asynchronous operations are tasks that start now but finish later, without blocking the rest of the program.
+## Synchronous vs. Asynchronous Operations
 
-Start first, finish later — without blocking other code.
+**Synchronous operations** execute in sequence. Each operation must finish before the next one can begin.
 
-Synchronous: wait → then continue
+**Asynchronous operations** allow a program to start a task and continue executing other code while waiting for the task to complete. Once the task finishes, its result can be handled.
 
-Asynchronous: continue → result comes later
+For example, when fetching data from a server, the program does not need to stop and wait for the response. It can continue executing other code and process the fetched data when it becomes available.
+
+**Key difference:**
+
+- **Synchronous:** Start a task → Wait for it to finish → Continue executing code.
+- **Asynchronous:** Start a task → Continue executing other code → Handle the result when it is ready.
+
+In JavaScript, asynchronous operations are commonly handled using **Promises** and **async/await**.
 
 ---
 ## What is a Promise in JavaScript?
