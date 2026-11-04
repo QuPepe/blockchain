@@ -16,7 +16,7 @@ function Hello() {
 
 ## What are Hooks?
 
-Hooks are special React functions that let functional components use React features, such as state and side effects.
+Hooks are special React functions that let functional components manage their own state and handle side effects.
 
 They are called **Hooks** because they allow components to "hook into" React's built-in features.
 
