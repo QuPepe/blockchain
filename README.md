@@ -15,7 +15,7 @@
 + [WTF Solidity](https://github.com/AmazingAng/WTF-Solidity)
 + [Develop an NFT Collection](https://updraft.cyfrin.io/courses/advanced-foundry/how-to-create-an-NFT-collection/introduction-to-nfts)
 + [Develop an NFT Collection, By TA](https://github.com/jing-yuan-nccu/foundry-nft)
-+ [JavaScript: Promise 介紹](https://www.casper.tw/development/2020/10/16/async-await/)
++ [JavaScript: Promise 介紹](https://www.casper.tw/development/2020/02/16/all-new-promise/)
 + [JavaScript: async / await 介紹](https://www.casper.tw/development/2020/10/16/async-await/)
 + [React: useState](https://react.dev/reference/react/useState)
 + [React: userEffect](https://react.dev/reference/react/useEffect)
