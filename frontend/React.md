@@ -159,3 +159,9 @@ State is updated when React re-renders the component, not when `setState` is cal
 | `useEffect`   | Handle side effects |
 
 With Hooks, functional components can manage state and side effects.
+
+---
+
+## References
++ [React: useState](https://react.dev/reference/react/useState)
++ [React: userEffect](https://react.dev/reference/react/useEffect)
