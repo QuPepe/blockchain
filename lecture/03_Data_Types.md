@@ -43,7 +43,7 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 
 - Reference-type function parameters and local variables generally require an explicit data location (`storage`, `memory`, or `calldata`), subject to Solidity's restrictions.
 - State variables reside in `storage` by default; you do not annotate them with `storage`.
-- Value-type variables are copied by value and generally do not have an explicit data-location annotation. Value-type parameters can still be encoded in calldata when supplied to an external function.
+- Explicit data-location specifiers (`storage`, `memory`, and `calldata`) apply to reference types, not value types. However, external calls encode both value-type and reference-type arguments in EVM calldata.
 - A local `storage` reference must refer to existing storage data; it cannot create independent persistent storage.
 
 > **Key idea:** Data location helps determine whether an operation shares existing data or creates a copy.
@@ -188,7 +188,9 @@ The assignment `nums = a` writes the array contents to storage. Changing `a[0]` 
 
 ## 8. Calldata (Read-Only Function Inputs)
 
-`calldata` is a read-only data location commonly used for reference-type function parameters. It is especially useful for external functions because input arrays and strings can be read without first copying them into `memory`.
+`calldata` is a read-only EVM data area containing the encoded arguments of an external call. Both **value types** (such as `uint`, `bool`, and `address`) and **reference types** (such as arrays and strings) can be passed through calldata. However, Solidity allows an explicit `calldata` data-location specifier only for reference-type variables.
+
+For reference-type parameters, `calldata` is especially useful because input arrays and strings can be read without first copying them into `memory`.
 
 ```solidity
 function sum(uint[] calldata numbers)
@@ -206,9 +208,24 @@ function sum(uint[] calldata numbers)
 }
 ```
 
-- `numbers` is read-only: `numbers[0] = 999;` would not compile.
+- `numbers` is a reference type, so `calldata` can be explicitly specified. It is read-only: `numbers[0] = 999;` would not compile.
 - `calldata` is not limited to `external` functions; it can also be used for suitable reference-type parameters in `public` and `internal` functions.
 - Copying `calldata` into `memory` or `storage` creates independent data.
+
+### Value-type arguments also arrive through calldata
+
+```solidity
+function increment(uint256 x) external pure returns (uint256) {
+    x = x + 1;
+    return x;
+}
+```
+
+- `uint256` is a value type. In an external call, its argument is encoded in EVM calldata.
+- Do **not** write `uint256 calldata x`: explicit data-location annotations are not allowed for value types.
+- Reassigning `x` inside the function is allowed because `x` is a local value-type parameter; this does **not** modify the original calldata.
+
+> **Distinction:** *EVM calldata* may contain both value-type and reference-type arguments, whereas the Solidity **`calldata` keyword** explicitly specifies the location of a reference-type variable.
 
 > **Calldata:** Read-only input data. Detailed copying rules and gas considerations can be covered in the Functions chapter.
 
@@ -231,4 +248,5 @@ function sum(uint[] calldata numbers)
 - **Value types** are copied by value.
 - **Reference types** may share underlying data or be copied, depending on the data locations and assignment context.
 - **Mutating data** through a shared reference differs from **reassigning the reference** itself.
-- **`calldata`** is read-only and is commonly used for external function parameters; copying calldata data into memory or storage creates independent data.
+- **EVM calldata** can contain both value-type and reference-type arguments, but the explicit **`calldata` keyword** applies only to reference types.
+- **`calldata` references** are read-only; copying their data into memory or storage creates independent data.
