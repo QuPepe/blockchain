@@ -8,7 +8,6 @@
 + [Ethers.js documents](https://docs.ethers.org/v6/)
 
 # Supplements
-+ [Application Binary Interfaces](https://docs.ethers.org/v6/basics/abi/)
 + [Introduction to Smart Contracts](https://docs.soliditylang.org/en/develop/introduction-to-smart-contracts.html)
 + [Solidity by Example](https://docs.soliditylang.org/en/develop/solidity-by-example.html)
 + [Console logging in Foundry](https://book.getfoundry.sh/reference/forge-std/console-log)
