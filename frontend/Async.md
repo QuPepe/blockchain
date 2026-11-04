@@ -129,7 +129,7 @@ An `async` function ALWAYS returns a Promise.
 
 ---
 
-## Example Using async / await
+## Async / Await
 ```javascript
 const shouldSucceed = true;
 
