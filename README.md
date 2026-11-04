@@ -17,6 +17,8 @@
 + [Develop an NFT Collection, By TA](https://github.com/jing-yuan-nccu/foundry-nft)
 + [JavaScript: Promise 介紹](https://www.casper.tw/development/2020/02/16/all-new-promise/)
 + [JavaScript: async / await 介紹](https://www.casper.tw/development/2020/10/16/async-await/)
++ [JavaScript: Promise](https://javascript.info/promise-basics)
++ [JavaScript: Async/await](https://javascript.info/async-await)
 + [React: useState](https://react.dev/reference/react/useState)
 + [React: userEffect](https://react.dev/reference/react/useEffect)
 

@@ -81,7 +81,7 @@ function fetchData() {
                 resolve("Fetched data");
             } else {
                 // ❌ Reject with error
-                reject("Error: Failed to fetch data");
+                reject("Failed to fetch data");
             }
 
         }, 3000);
@@ -142,7 +142,7 @@ function fetchData() {
             if (shouldSucceed) {
                 resolve("Fetched data");
             } else {
-                reject("Error: Failed to fetch data");
+                reject("Failed to fetch data");
             }
 
         }, 3000);
@@ -195,3 +195,9 @@ States:
 `await` pauses execution until Promise resolves
 
 async/await = cleaner syntax for Promises
+
+---
+
+## References
++ [JavaScript: Promise](https://javascript.info/promise-basics)
++ [JavaScript: Async/await](https://javascript.info/async-await)
