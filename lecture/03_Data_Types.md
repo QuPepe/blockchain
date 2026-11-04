@@ -33,7 +33,7 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 
 ---
 
-## 3. Data Locations
+## 3. Data Locations (Not Types)
 
 | Location | Typical uses | Description |
 |---|---|---|
@@ -41,8 +41,9 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 | `memory` | Temporary arrays, structs, strings, and bytes | Temporary data during execution. |
 | `calldata` | Function inputs, especially external parameters | Read-only input data; cannot be modified in place. |
 
-- *Explicit data-location specifiers (`storage`, `memory`, and `calldata`) apply to reference types, not value types.*
+- Function parameters and local variables **of reference types** generally require an explicit data location (`storage`, `memory`, or `calldata`), subject to Solidity's restrictions. **Value types do not use explicit data-location specifiers.**
 - State variables reside in `storage` by default; you do not annotate them with `storage`.
+- In external function calls, both value-type and reference-type arguments are passed through EVM calldata. However, only reference types can use the explicit `calldata` keyword in Solidity.
 - A local `storage` reference must refer to existing storage data; it cannot create independent persistent storage.
 
 > **Key idea:** Data location helps determine whether an operation shares existing data or creates a copy.
@@ -211,6 +212,23 @@ function sum(uint[] calldata numbers)
 - `calldata` is not limited to `external` functions; it can also be used for suitable reference-type parameters in `public` and `internal` functions.
 - Copying `calldata` into `memory` or `storage` creates independent data.
 
+### Calldata → Calldata (Shared Read-Only Data)
+
+Passing a `calldata` array to an internal function that also accepts `calldata` does not create an independent memory copy. Both parameters access the same read-only input data.
+
+```solidity
+function first(uint[] calldata arr) internal pure returns (uint) {
+    return arr[0];
+}
+
+function readFirst(uint[] calldata numbers) external pure returns (uint) {
+    require(numbers.length > 0, "Empty array");
+    return first(numbers); // No memory copy is needed
+}
+```
+
+Neither function can modify the elements of its `calldata` array.
+
 ### Value-type arguments also arrive through calldata
 
 ```solidity
@@ -224,7 +242,7 @@ function increment(uint256 x) external pure returns (uint256) {
 - Do **not** write `uint256 calldata x`: explicit data-location annotations are not allowed for value types.
 - Reassigning `x` inside the function is allowed because `x` is a local value-type parameter; this does **not** modify the original calldata.
 
-> **Distinction:** *EVM calldata* may contain both value-type and reference-type arguments, whereas the Solidity **`calldata` keyword** explicitly specifies the location of a reference-type variable.
+> **Distinction:** **EVM calldata** is the read-only input data area used by external calls and can contain both value-type and reference-type arguments. The Solidity **`calldata` keyword** is a data-location specifier for reference-type variables only.
 
 > **Calldata:** Read-only input data. Detailed copying rules and gas considerations can be covered in the Functions chapter.
 
@@ -240,7 +258,9 @@ function increment(uint256 x) external pure returns (uint256) {
 | Storage → Storage (local reference) | Shared underlying data | Yes |
 | Memory → Storage | Independent copy | No |
 | Storage state variable → Storage state variable | Contents copied | No |
-| Calldata → Memory / Storage | Independent copy | No |
+| Calldata → Calldata (internal parameter) | Shared read-only input data | Mutation not allowed |
+| Calldata → Memory | Independent copy | No |
+| Calldata → Storage | Independent copy | No |
 
 **Remember:**
 
@@ -248,4 +268,4 @@ function increment(uint256 x) external pure returns (uint256) {
 - **Reference types** may share underlying data or be copied, depending on the data locations and assignment context.
 - **Mutating data** through a shared reference differs from **reassigning the reference** itself.
 - **EVM calldata** can contain both value-type and reference-type arguments, but the explicit **`calldata` keyword** applies only to reference types.
-- **`calldata` references** are read-only; copying their data into memory or storage creates independent data.
+- **`calldata` references** are read-only. Passing them to another `calldata` parameter can share input data; copying them into `memory` or `storage` creates independent data.
