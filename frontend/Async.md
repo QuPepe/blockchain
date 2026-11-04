@@ -1,76 +1,67 @@
-# Asynchronous Operations in JavaScript
+# Asynchronous JavaScript: Promises and Async/Await
 
-## What Are Asynchronous Operations?
+## Synchronous vs. Asynchronous
 
-An asynchronous operation can start now and finish later without blocking other JavaScript tasks while it is waiting.
+- **Synchronous:** JavaScript runs code step by step.
+- **Asynchronous:** Some operations take time. JavaScript can do other work while waiting.
 
-- **Synchronous:** finish the current operation before continuing.
-- **Asynchronous:** start an operation, continue with other work, and handle its result later.
+For example, a Web3 frontend may need to wait for data from a blockchain network.
 
-For example, a Web3 frontend may wait for an RPC response without freezing the user interface.
+## What Is a Promise?
 
----
+A **Promise** represents a result that may become available later.
 
-## What Is a Promise in JavaScript?
+A Promise has three possible states:
 
-A **Promise** is an object representing the eventual completion or failure of an operation and its resulting value (or rejection reason).
-
-A Promise can be returned immediately even when its result is not available yet.
-
-## States of a Promise
-
-A Promise has one of three states:
-
-- **Pending:** not yet fulfilled or rejected.
-- **Fulfilled:** completed successfully, with a fulfillment value.
-- **Rejected:** failed, with a rejection reason.
-
-A Promise is **settled** when it is fulfilled or rejected. Once settled, its state cannot change.
-
----
+- **Pending:** Still waiting.
+- **Fulfilled:** Completed successfully.
+- **Rejected:** Failed.
 
 ## Creating a Promise
 
 ```javascript
-// Create a Promise object
-const myPromise = new Promise((resolve, reject) => {
-    // Simulate an asynchronous operation
-    setTimeout(() => {
-        const success = true; // Change to false to test failure
+const shouldSucceed = true;
 
-        if (success) {
-            resolve("Operation succeeded!");
-        } else {
-            reject(new Error("Operation failed!"));
-        }
-    }, 3000);
-});
+// Function that returns a Promise
+function fetchData() {
+    return new Promise((resolve, reject) => {
+
+        // Simulate an asynchronous operation
+        setTimeout(() => {
+
+            if (shouldSucceed) {
+                // Success: provide the result
+                resolve("Fetched data");
+            } else {
+                // Failure: provide the error
+                reject("Failed to fetch data");
+            }
+
+        }, 3000);
+    });
+}
 ```
 
-- `resolve(value)` fulfills this Promise with `value` (if `value` is another Promise or thenable, its eventual outcome is adopted).
-- `reject(reason)` rejects this Promise with `reason`. Using an `Error` object is recommended.
-- **Unlike `return`, calling `resolve()` or `reject()` does not immediately stop the current function.**
+- `resolve(value)`: The operation succeeded. The Promise becomes fulfilled with the given value.
+- `reject(error)`: The operation failed. The Promise becomes rejected.
+- `return new Promise(...)`: The function returns a Promise object.
 
-The Promise constructor returns the Promise object immediately; the `setTimeout` callback runs later.
+**Note:** `resolve()` is not the same as `return`. Calling `resolve()` does not immediately stop the function.
 
-## Consuming a Promise
+## Using .then() and .catch()
 
 ```javascript
-myPromise
-    .then(result => {
-        // Runs when the Promise is fulfilled
-        console.log(result);
+fetchData()
+    .then(data => {
+        console.log(data);
     })
     .catch(error => {
-        // Runs if the Promise chain is rejected
-        console.error("Error:", error.message);
+        console.error("Error:", error);
     });
 ```
 
-- `.then()` handles fulfillment and returns a **new Promise**.
-- `.catch()` handles rejection and also returns a **new Promise**.
-
----
+- `.then()` handles a successful result.
+- `.catch()` handles an error.
 
 ## Promise Chaining
 
@@ -80,13 +71,16 @@ const shouldSucceed = true;
 // Function that returns a Promise
 function fetchData() {
     return new Promise((resolve, reject) => {
-        // Simulate an asynchronous operation
+
+        // Simulate async operation
         setTimeout(() => {
+
             if (shouldSucceed) {
                 resolve("Fetched data");
             } else {
-                reject(new Error("Failed to fetch data"));
+                reject("Failed to fetch data");
             }
+
         }, 3000);
     });
 }
@@ -96,7 +90,7 @@ function processFetchedData(data) {
     return `${data} - Processed`;
 }
 
-// Chain multiple processing steps
+// Chain multiple steps
 fetchData()
     .then(fetchedData => {
         // Step 1: Handle fetched data
@@ -110,99 +104,48 @@ fetchData()
         console.log(processedData);
     })
     .catch(error => {
-        // Handle rejection or errors thrown in previous steps
-        console.error("Error:", error.message);
+        // Handle errors from previous steps
+        console.error("Error:", error);
     });
 ```
 
-**Key points:**
+When `shouldSucceed = true`, the output after about 3 seconds is:
 
-1. `fetchData()` immediately returns a Promise.
-2. `resolve("Fetched data")` fulfills that Promise after approximately three seconds.
-3. The first `.then()` receives `"Fetched data"`.
-4. `processFetchedData()` returns a regular string, which becomes the fulfillment value of the Promise returned by that `.then()`.
-5. The next `.then()` receives the processed string.
-6. A rejection or thrown error in an earlier step is passed to the final `.catch()`, unless an earlier handler has already handled it.
+```text
+Fetched data
+Fetched data - Processed
+```
 
-**Important:** Promise chaining does not mean that every callback must return a Promise. A `.then()` callback can return a regular value or a Promise, but `.then()` itself always returns a new Promise.
+Each `.then()` can pass a result to the next `.then()`.
 
----
+## Async/Await
 
-## Why Async/Await?
+`async/await` is another way to work with Promises. It often makes code easier to read.
 
-Long `.then()` chains can become harder to read. `async/await` provides a more sequential-looking way to work with Promises.
+**Two important rules:**
 
-It does **not** make an asynchronous operation synchronous or block the entire JavaScript thread while waiting.
+1. An `async` function **always returns a Promise**, even if it returns a normal value.
+2. If you use `await` inside a function, that function must be declared `async`.
 
-## Key Rules for Async/Await
-
-1. **An `async` function always returns a Promise**, even if it returns a regular value or does not use `await`.
-2. **`await` is normally used inside an `async` function.** Top-level `await` is also allowed in JavaScript ES modules.
-3. **An `async` function does not have to contain `await`.**
-4. **`await` pauses the execution of the surrounding async function**, not the entire JavaScript thread.
-5. When the awaited Promise fulfills, `await` evaluates to its fulfillment value. When it rejects, `await` throws the rejection reason.
-6. `await` can also accept a non-Promise value; JavaScript treats it as an already fulfilled value, but the async function still resumes asynchronously.
-
-### Example: An Async Function Always Returns a Promise
+For example:
 
 ```javascript
 async function getData() {
     return "Hello";
 }
 
-const result = getData();
-console.log(result); // A Promise, not the string "Hello"
-
-result.then(data => {
+getData().then(data => {
     console.log(data); // Hello
 });
 ```
 
-Conceptually, this behaves like:
+Although `getData()` returns `"Hello"` inside the function, calling `getData()` gives you a Promise.
 
-```javascript
-function getData() {
-    return Promise.resolve("Hello");
-}
-```
+`await` waits for a Promise's result **inside the async function**, without blocking the entire JavaScript program.
 
-Even without a `return` statement, an async function returns a Promise fulfilled with `undefined` (unless it throws an error).
+## Example Using Async/Await
 
-### Example: Await Requires an Async Function
-
-```javascript
-// Correct
-async function showData() {
-    const data = await getData();
-    console.log(data);
-}
-
-showData();
-```
-
-This is **not** valid inside an ordinary function:
-
-```javascript
-// Incorrect: SyntaxError
-function showData() {
-    const data = await getData();
-    console.log(data);
-}
-```
-
-**Exception:** Top-level `await` is valid in an ES module:
-
-```javascript
-// In an ES module (e.g., a .mjs file)
-const data = await getData();
-console.log(data);
-```
-
----
-
-## Async/Await
-
-The following example performs the same work as the **Promise Chaining** example above.
+This example does the same work as the Promise chaining example.
 
 ```javascript
 const shouldSucceed = true;
@@ -210,12 +153,15 @@ const shouldSucceed = true;
 // Same Promise-based function
 function fetchData() {
     return new Promise((resolve, reject) => {
+
         setTimeout(() => {
+
             if (shouldSucceed) {
                 resolve("Fetched data");
             } else {
-                reject(new Error("Failed to fetch data"));
+                reject("Failed to fetch data");
             }
+
         }, 3000);
     });
 }
@@ -228,82 +174,42 @@ function processFetchedData(data) {
 // An async function always returns a Promise
 async function fetchDataAndProcess() {
     try {
-        // Pause this async function until the Promise settles
+        // Wait for the Promise to resolve
         const fetchedData = await fetchData();
         console.log(fetchedData);
 
-        // Continue processing after await
+        // Continue processing
         const processedData = processFetchedData(fetchedData);
         console.log(processedData);
 
-        return processedData;
     } catch (error) {
-        // Handle a rejected Promise or a thrown error
-        console.error("Error:", error.message);
-        throw error; // Propagate the failure to the caller
+        // Handle errors (similar to .catch())
+        console.error("Error:", error);
     }
 }
 
-// Run the async function and handle its returned Promise
-fetchDataAndProcess().catch(error => {
-    console.error("Operation failed:", error.message);
-});
+// Run the async function
+fetchDataAndProcess();
 ```
 
-With `shouldSucceed = true`, the console shows (after approximately three seconds):
-
-```text
-Fetched data
-Fetched data - Processed
-```
-
-With `shouldSucceed = false`, the Promise rejects and control jumps to `catch`. In this example, the error is rethrown so the caller's `.catch()` can also handle it. **If a `catch` block handles an error without rethrowing it, the async function normally returns a fulfilled Promise instead.**
-
-### Does `await` Block JavaScript?
-
-No. Code before the first `await` begins executing synchronously when the async function is called. While the async function is suspended at `await`, other JavaScript tasks can continue.
-
-```javascript
-async function example() {
-    console.log("A");
-    await Promise.resolve();
-    console.log("C");
-}
-
-example();
-console.log("B");
-
-// Output:
-// A
-// B
-// C
-```
-
----
+If `shouldSucceed = false`, `await fetchData()` encounters a rejected Promise and execution moves to `catch`.
 
 ## Summary
 
-| Concept | Meaning |
+| Syntax | Meaning |
 | --- | --- |
-| `Promise` | Object representing an eventual result |
-| `pending` | Promise has not settled |
-| `fulfilled` | Promise completed successfully |
-| `rejected` | Promise failed |
-| `resolve(value)` | Resolve a Promise with a value or adopt another Promise's outcome |
-| `reject(reason)` | Reject a Promise |
-| `.then()` | Handle fulfillment and return a new Promise |
-| `.catch()` | Handle rejection and return a new Promise |
-| `async` | Declare an async function that always returns a Promise |
-| `await` | Suspend the surrounding async function until a value/Promise is resolved |
-| `try/catch` | Handle errors with familiar control-flow syntax |
+| `Promise` | A result that may arrive later |
+| `resolve(value)` | Indicate success and provide a result |
+| `reject(error)` | Indicate failure |
+| `.then()` | Handle a successful result |
+| `.catch()` | Handle an error |
+| `async` | Declare a function that returns a Promise |
+| `await` | Wait for a result inside an async function |
+| `try/catch` | Handle errors in async/await code |
 
-**Remember:** `async/await` is syntax for working with Promises, not a separate asynchronous mechanism.
-
----
+**Note:** JavaScript also allows top-level `await` in ES modules, but this is not needed for the examples above.
 
 ## References
 
 - [JavaScript.info: Promise](https://javascript.info/promise-basics)
 - [JavaScript.info: Async/await](https://javascript.info/async-await)
-- [MDN: async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-- [MDN: await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
