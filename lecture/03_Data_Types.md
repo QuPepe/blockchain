@@ -33,7 +33,7 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 
 ---
 
-## 3. Data Locations (Not Types)
+## 3. Data Locations
 
 | Location | Typical uses | Description |
 |---|---|---|
@@ -41,9 +41,8 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 | `memory` | Temporary arrays, structs, strings, and bytes | Temporary data during execution. |
 | `calldata` | Function inputs, especially external parameters | Read-only input data; cannot be modified in place. |
 
-- Reference-type function parameters and local variables generally require an explicit data location (`storage`, `memory`, or `calldata`), subject to Solidity's restrictions.
+- *Explicit data-location specifiers (`storage`, `memory`, and `calldata`) apply to reference types, not value types.*
 - State variables reside in `storage` by default; you do not annotate them with `storage`.
-- Explicit data-location specifiers (`storage`, `memory`, and `calldata`) apply to reference types, not value types. However, external calls encode both value-type and reference-type arguments in EVM calldata.
 - A local `storage` reference must refer to existing storage data; it cannot create independent persistent storage.
 
 > **Key idea:** Data location helps determine whether an operation shares existing data or creates a copy.
