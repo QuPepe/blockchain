@@ -44,8 +44,8 @@ Reference types store data indirectly and refer to a data location (`storage`, `
 | `memory`  | Function parameters & local variables| Temporary, exists during function execution     |
 | `calldata`| External function inputs             | Read-only, non-modifiable input data            |
 
-> Type = what data is
 > Location = where data lives
+
 > Data location applies only to reference types
 
 ---
@@ -95,6 +95,7 @@ function test2() public pure returns (uint) {
 👉 The caller’s variable `a` still points to the original memory data.
 
 > Memory → Memory: the reference is copied.
+
 > Modifying shared data may affect the caller, but reassigning the reference does not.
 
 ---
@@ -110,7 +111,7 @@ function foo(uint[] memory arr) internal {
 
 function bar() public {
     nums.push(1);
-    foo(nums);
+    foo(nums); // nums[0] is still 1
 }
 ```
 
@@ -121,4 +122,5 @@ function bar() public {
 ## Summary
 
 > Value types are always copied.
+
 > Reference types may share or copy data depending on location.
