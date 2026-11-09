@@ -157,7 +157,7 @@ Call `setNumber()` once, then `bar()`. Reading `nums(0)` returns `999`.
 
 > **Storage → Storage (local reference):** Shared data; modifications affect the original state variable.
 
-**Important distinction:** Assigning one **state variable** array to another state variable array (e.g., `otherNums = nums;`) copies the array's contents rather than making the two state variables aliases. The shared-reference behavior above concerns **local storage references**.
+**Important:** Assigning one state variable array to another (e.g., `otherNums = nums;`) creates an independent copy. However, assigning a state variable array to a local storage reference (e.g., `uint[] storage ref = nums;`) does not copy the array. Both names refer to the same data in storage.
 
 ---
 
