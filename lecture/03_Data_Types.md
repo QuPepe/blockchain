@@ -143,13 +143,13 @@ function foo(uint[] storage arr) internal {
     arr[0] = 999;
 }
 
-function bar() public {
+function bar() public returns (uint) {
     require(nums.length > 0, "Call setNumber first");
 
     uint[] storage ref = nums; // Storage → Storage: reference
     foo(ref);
 
-    // nums[0] is now 999
+    return nums[0]; // Returns 999
 }
 ```
 
