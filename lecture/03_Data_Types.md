@@ -287,4 +287,4 @@ function increment(uint256 x) external pure returns (uint256) {
 
 ## References
 
-- [Solidity Documentation — Types](https://docs.soliditylang.org/en/latest/types.html)
+- [Solidity Documentation — Types](https://docs.soliditylang.org/en/stable/types.html)

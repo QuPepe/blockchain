@@ -243,7 +243,7 @@ function transferOwnership(address newOwner) public onlyOwner {
 
 ## References
 
-- [Solidity documentation — Contracts: Visibility](https://docs.soliditylang.org/en/stable/contracts.html#visibility-and-getters)
-- [Solidity documentation — Contracts: State mutability](https://docs.soliditylang.org/en/stable/contracts.html#state-mutability)
-- [Solidity documentation — Contracts: Function modifiers](https://docs.soliditylang.org/en/stable/contracts.html#function-modifiers)
-- [Solidity documentation — Contracts: Function overriding](https://docs.soliditylang.org/en/stable/contracts.html#function-overriding)
+- [Solidity Documentation — Contracts: Visibility and Getters](https://docs.soliditylang.org/en/stable/contracts.html#visibility-and-getters)
+- [Solidity Documentation — Contracts: State Mutability](https://docs.soliditylang.org/en/stable/contracts.html#state-mutability)
+- [Solidity Documentation — Contracts: Function Modifiers](https://docs.soliditylang.org/en/stable/contracts.html#function-modifiers)
+- [Solidity Documentation — Contracts: Function Overriding](https://docs.soliditylang.org/en/stable/contracts.html#function-overriding)
