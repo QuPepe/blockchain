@@ -188,6 +188,94 @@ The assignment `nums = a` writes the array contents to storage. Changing `a[0]` 
 
 ## 8. Calldata (Read-Only Function Inputs)
 
+`calldata` is a read-only data location primarily used for function inputs.
+
+In the EVM, calldata is a read-only data area containing the input bytes of an external call. Solidity typically uses ABI encoding to represent function arguments in calldata.
+
+- **External calls:** Both value-type and reference-type arguments are encoded in EVM calldata. This includes externally invoked `public` functions.
+- **Internal calls:** Do not create new EVM calldata, but internal functions can still access existing calldata.
+- **Solidity `calldata` keyword:** Can be explicitly used only for reference types, such as arrays and strings. It is not limited to `external` functions.
+
+For reference-type parameters, `calldata` is especially useful because arrays and strings can be read without first copying them into `memory`, which can save gas.
+
+### Example: Reading Calldata
+
+```solidity
+function sum(uint[] calldata numbers)
+    external
+    pure
+    returns (uint)
+{
+    uint total = 0;
+
+    for (uint i = 0; i < numbers.length; i++) {
+        total += numbers[i];
+    }
+
+    return total;
+}
+```
+
+- `numbers` is a reference-type parameter stored in `calldata`.
+- `calldata` is read-only: `numbers[0] = 999;` would not compile.
+- Copying data from `calldata` into `memory` or `storage` creates an independent copy.
+
+### Calldata → Calldata (Shared Read-Only Data)
+
+Passing a `calldata` array to an internal function that also accepts `calldata` does not create an independent memory copy. Both parameters access the same read-only input data.
+
+```solidity
+function first(uint[] calldata arr) internal pure returns (uint) {
+    return arr[0];
+}
+
+function readFirst(uint[] calldata numbers) external pure returns (uint) {
+    require(numbers.length > 0, "Empty array");
+
+    return first(numbers); // No memory copy is needed
+}
+```
+
+- `readFirst()` receives its argument through EVM calldata.
+- `first()` is called internally, so no new EVM calldata is created.
+- Both `numbers` and `arr` refer to the same read-only calldata.
+- Neither function can modify the elements of its `calldata` array.
+
+### Value-Type Arguments Also Arrive Through Calldata
+
+```solidity
+function increment(uint256 x) external pure returns (uint256) {
+    x = x + 1;
+    return x;
+}
+```
+
+- `uint256` is a value type. In an external call, its argument is encoded in EVM calldata.
+- Do **not** write `uint256 calldata x`: explicit data-location specifiers are not allowed for value types.
+- Reassigning `x` is allowed because `x` is a value-type parameter. Changing `x` does not modify the original calldata.
+
+> **Important distinction:** EVM calldata is the read-only input data area used by external calls and can contain both value-type and reference-type arguments. The Solidity `calldata` keyword is a data-location specifier used only for reference types.
+
+> **Calldata:** Read-only input data. Passing a calldata reference to another calldata parameter can share the same input data, while copying it into memory or storage creates independent data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 8. Calldata (Read-Only Function Inputs)
+
 `calldata` is a read-only EVM data area containing the encoded arguments of an external call. Both **value types** (such as `uint`, `bool`, and `address`) and **reference types** (such as arrays and strings) can be passed through calldata. However, Solidity allows an explicit `calldata` data-location specifier only for reference-type variables.
 
 For reference-type parameters, `calldata` is especially useful because input arrays and strings can be read without first copying them into `memory`.
@@ -211,6 +299,20 @@ function sum(uint[] calldata numbers)
 - `numbers` is a reference type, so `calldata` can be explicitly specified. It is read-only: `numbers[0] = 999;` would not compile.
 - `calldata` is not limited to `external` functions; it can also be used for suitable reference-type parameters in `public` and `internal` functions.
 - Copying `calldata` into `memory` or `storage` creates independent data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Calldata → Calldata (Shared Read-Only Data)
 
