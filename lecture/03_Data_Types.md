@@ -288,4 +288,4 @@ function increment(uint256 x) external pure returns (uint256) {
 ## References
 
 - [Solidity Documentation — Types: Value Types](https://docs.soliditylang.org/en/stable/types.html#value-types)
-- [Solidity Documentation — TypesTypes: Reference Types](https://docs.soliditylang.org/en/stable/types.html#reference-types)
+- [Solidity Documentation — Types: Reference Types](https://docs.soliditylang.org/en/stable/types.html#reference-types)
