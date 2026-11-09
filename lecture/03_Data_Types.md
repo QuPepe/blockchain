@@ -50,7 +50,7 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 
 ---
 
-## 4. Memory → Memory (Shared References)
+## 4. Memory → Memory: Shared References
 
 When a memory array is assigned to another memory variable, or passed to an internal function expecting a memory array, both references can refer to the same underlying array. This is **not** an independent deep copy.
 
@@ -97,7 +97,7 @@ function test2() public pure returns (uint) {
 
 ---
 
-## 5. Storage → Memory (Independent Copy)
+## 5. Storage → Memory: Independent Copy
 
 Assigning a storage array to a memory variable creates an independent copy. Changes to the memory copy do not change the original storage array.
 
@@ -128,9 +128,9 @@ Call `setNumber()` once, then call `bar()`. The original `nums[0]` stays `1` bec
 
 ---
 
-## 6. Storage → Storage (Shared References)
+## 6. Storage → Storage: Shared References
 
-Assigning a storage array to a local storage reference does **not** copy the array. Both names refer to the same persistent data.
+Assigning a storage array to a **local storage reference** does **not** copy the array. Both names refer to the same persistent data.
 
 ```solidity
 uint[] public nums;
@@ -161,7 +161,7 @@ Call `setNumber()` once, then `bar()`. Reading `nums(0)` returns `999`.
 
 ---
 
-## 7. Memory → Storage (Independent Copy)
+## 7. Memory → Storage: Independent Copy
 
 Assigning a memory array to a storage state variable copies its contents into persistent storage. Subsequent changes to the memory array do not affect storage.
 
