@@ -239,6 +239,8 @@ function transferOwnership(address newOwner) public onlyOwner {
 
 **Takeaway:** Specifiers and keywords describe declaration properties and inheritance behavior; custom function modifiers add reusable logic to function execution. Avoid calling all these constructs simply “modifiers.”
 
+--
+
 ## References
 
 - Solidity documentation — [Contracts: Visibility](https://docs.soliditylang.org/en/latest/contracts.html#visibility-and-getters)

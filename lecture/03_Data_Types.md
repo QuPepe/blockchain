@@ -279,3 +279,9 @@ function increment(uint256 x) external pure returns (uint256) {
 - **Mutating data** through a shared reference differs from **reassigning the reference** itself.
 - **EVM calldata** can contain both value-type and reference-type arguments, but the explicit **`calldata` keyword** applies only to reference types.
 - **`calldata` references** are read-only. Passing them to another `calldata` parameter can share input data; copying them into `memory` or `storage` creates independent data.
+
+--
+
+## References
+
+- Solidity documentation — [Types](https://docs.soliditylang.org/en/latest/types.html)
