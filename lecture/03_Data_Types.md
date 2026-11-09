@@ -256,8 +256,8 @@ function increment(uint256 x) external pure returns (uint256) {
 | Memory → Memory (assignment / internal parameter) | Shared underlying data | Yes, for mutations to shared data |
 | Storage → Memory | Independent copy | No |
 | Storage → Storage (local reference) | Shared underlying data | Yes |
+| Storage (state variable) → Storage (state variable) | Contents copied | No |
 | Memory → Storage | Independent copy | No |
-| Storage state variable → Storage state variable | Contents copied | No |
 | Calldata → Calldata (internal parameter) | Shared read-only input data | Mutation not allowed |
 | Calldata → Memory | Independent copy | No |
 | Calldata → Storage | Independent copy | No |
