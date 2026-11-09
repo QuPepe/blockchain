@@ -239,7 +239,7 @@ function transferOwnership(address newOwner) public onlyOwner {
 
 **Takeaway:** Specifiers and keywords describe declaration properties and inheritance behavior; custom function modifiers add reusable logic to function execution. Avoid calling all these constructs simply “modifiers.”
 
---
+---
 
 ## References
 

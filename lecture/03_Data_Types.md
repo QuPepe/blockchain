@@ -280,7 +280,7 @@ function increment(uint256 x) external pure returns (uint256) {
 - **EVM calldata** can contain both value-type and reference-type arguments, but the explicit **`calldata` keyword** applies only to reference types.
 - **`calldata` references** are read-only. Passing them to another `calldata` parameter can share input data; copying them into `memory` or `storage` creates independent data.
 
---
+---
 
 ## References
 
