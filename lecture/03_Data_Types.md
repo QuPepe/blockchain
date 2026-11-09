@@ -190,13 +190,13 @@ The assignment `nums = a` writes the array contents to storage. Changing `a[0]` 
 
 `calldata` is a read-only data location primarily used for function inputs.
 
-In the EVM, calldata is a read-only data area containing the input bytes of an external call. Solidity typically uses ABI encoding to represent function arguments in calldata.
+In the EVM, calldata is a read-only data area containing the input bytes of an external message call. Solidity typically uses ABI encoding to represent function arguments in calldata.
 
 - **External calls:** Both value-type and reference-type arguments are encoded in EVM calldata. This includes externally invoked `public` functions.
 - **Internal calls:** Do not create new EVM calldata, but internal functions can still access existing calldata.
 - **Solidity `calldata` keyword:** Can be explicitly used only for reference types, such as arrays and strings. It is not limited to `external` functions.
 
-For reference-type parameters, `calldata` is especially useful because arrays and strings can be read without first copying them into `memory`, which can save gas.
+For reference-type parameters, `calldata` is especially useful because input arrays and strings can be read without first copying them into `memory`, which can save gas.
 
 ### Example: Reading Calldata
 
@@ -216,8 +216,9 @@ function sum(uint[] calldata numbers)
 }
 ```
 
-- `numbers` is a reference-type parameter stored in `calldata`.
+- `numbers` is a reference-type parameter using `calldata`.
 - `calldata` is read-only: `numbers[0] = 999;` would not compile.
+- `calldata` can also be used for suitable reference-type parameters in `public`, `internal`, and `private` functions.
 - Copying data from `calldata` into `memory` or `storage` creates an independent copy.
 
 ### Calldata → Calldata (Shared Read-Only Data)
@@ -254,6 +255,8 @@ function increment(uint256 x) external pure returns (uint256) {
 - Do **not** write `uint256 calldata x`: explicit data-location specifiers are not allowed for value types.
 - Reassigning `x` is allowed because `x` is a value-type parameter. Changing `x` does not modify the original calldata.
 
+> **Important distinction:** EVM calldata is the read-only input data area used by external message calls and can contain both value-type and reference-type arguments. The Solidity `calldata` keyword is a data-location specifier used only for reference types.
+
 > **Calldata:** Read-only input data. Passing a calldata reference to another calldata parameter can share the same input data, while copying it into memory or storage creates independent data.
 
 ---
@@ -279,9 +282,3 @@ function increment(uint256 x) external pure returns (uint256) {
 - **Mutating data** through a shared reference differs from **reassigning the reference** itself.
 - **EVM calldata** can contain both value-type and reference-type arguments, but the explicit **`calldata` keyword** applies only to reference types.
 - **`calldata` references** are read-only. Passing them to another `calldata` parameter can share input data; copying them into `memory` or `storage` creates independent data.
-
----
-
-## References
-
-- Solidity documentation — [Types](https://docs.soliditylang.org/en/latest/types.html)
