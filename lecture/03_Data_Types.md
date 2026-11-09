@@ -23,10 +23,10 @@ Reference types include arrays, structs, mappings, `string`, and dynamically siz
 
 | Type | Description | Example |
 |---|---|---|
-| `string` | Dynamically sized UTF-8 text. | `string memory name = "Alice";` (inside a function) |
-| `bytes` | Dynamically sized byte sequence. | `bytes memory data = hex"1234";` (inside a function) |
-| `array` | Fixed-size or dynamic sequence of elements. | `uint[] numbers;` (state variable) |
-| `mapping` | Key-value association; only available in `storage`. | `mapping(address => uint) balances;` (state variable) |
+| `string` | Dynamically sized UTF-8 text. | `string memory name = "Alice";` |
+| `bytes` | Dynamically sized byte sequence. | `bytes memory data = hex"1234";` |
+| `array` | Fixed-size or dynamic sequence of elements. | `uint[] numbers;` |
+| `mapping` | Key-value association; only available in `storage`. | `mapping(address => uint) balances;` |
 | `struct` | User-defined grouping of fields. | `struct Person { string name; uint age; }` |
 
 > **Note:** Mappings cannot be allocated in `memory` or `calldata`. They can be state variables, storage references, or members of storage-resident structures.
