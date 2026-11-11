@@ -33,7 +33,7 @@ function FunctionName([parameters])
 }
 ```
 
-**Note:** Square brackets `[]` indicate optional components; curly braces `{}` around alternatives indicate a required choice; and `|` indicates alternatives.
+**Note:** Curly braces `{}` around alternatives indicate a required choice; square brackets `[]` indicate optional components; and `|` indicates alternatives.
 
 **Example:**
 
@@ -83,19 +83,19 @@ contract VisibilityExample {
 
 ## 3. State mutability specifiers
 
-State mutability describes whether a function may read or modify contract state, or receive Ether.
+State mutability describes whether a function may read or modify contract state, or receive ether.
 
 | Specifier | Applies to | Description |
 |---|---|---|
 | `view` | Functions | Cannot modify state, but may read state. |
 | `pure` | Functions | Cannot read or modify contract state. |
-| `payable` | Functions | May receive Ether along with a call. |
-| *(none)* | Functions | May read and modify state; does **not** mean the function can receive Ether. |
+| `payable` | Functions | May receive ether along with a call. |
+| *(none)* | Functions | May read and modify state; does **not** mean the function can receive ether. |
 
 **Notes:**
 
 - `view`, `pure`, and `payable` are mutually exclusive function state mutability choices.
-- A non-`payable` function cannot receive Ether as part of its call (apart from special cases where Ether is transferred without executing the function).
+- A non-`payable` function cannot receive ether as part of its call (apart from special cases where ether is transferred without executing the function).
 - A `view` function called off-chain typically does not require a transaction or gas payment, but calling it within an on-chain transaction still consumes gas.
 
 **Example:**
@@ -183,7 +183,7 @@ contract OwnedVault {
 }
 ```
 
-This example demonstrates access control only; it does not transfer Ether. When `restrictedAction()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
+This example demonstrates access control only; it does not transfer ether. When `restrictedAction()` is called, Solidity checks the condition in `onlyOwner`. If it is true, execution reaches `_` and the function body runs. If it is false, the call reverts.
 
 ### 5.2 What does `_` mean?
 
@@ -232,12 +232,12 @@ function transferOwnership(address newOwner) public onlyOwner {
 | Category | Common syntax | Purpose |
 |---|---|---|
 | Visibility specifiers | `public`, `external`, `internal`, `private` | Control accessibility. |
-| State mutability specifiers | `view`, `pure`, `payable` | Describe state access or Ether reception. |
+| State mutability specifiers | `view`, `pure`, `payable` | Describe state access or ether reception. |
 | Inheritance-related keywords | `virtual`, `override` | Control overriding in inheritance. |
 | Contract-level keyword | `abstract` | Declare an abstract contract. |
 | Custom function modifiers | `onlyOwner`, `nonReentrant` | Apply reusable execution checks or behavior. |
 
-**Takeaway:** Specifiers and keywords describe declaration properties and inheritance behavior; custom function modifiers add reusable logic to function execution. Avoid calling all these constructs simply “modifiers.”
+**Takeaway:** Specifiers and keywords describe declaration properties and inheritance behavior; custom function modifiers add reusable logic to function execution.
 
 ---
 
