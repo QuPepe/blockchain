@@ -138,7 +138,7 @@ These keywords control whether a function may be overridden in a derived contrac
 
 - A base function generally needs `virtual` before a derived contract can override it.
 - An overriding function uses `override`; add `virtual` too if further derived contracts should be able to override it.
-- `abstract` is a **contract-level keyword**, not a function specifier. Abstract contracts may contain unimplemented functions, but an abstract contract does not necessarily have to contain one.
+- `abstract` is a **contract-level keyword**, not a function specifier. Abstract contracts may contain unimplemented functions, but they do not necessarily have to. **Abstract contracts cannot be instantiated or deployed directly**, but they can be inherited by other contracts.
 
 **Example:**
 
