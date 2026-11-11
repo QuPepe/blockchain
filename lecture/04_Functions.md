@@ -164,7 +164,7 @@ A **function modifier** is a reusable block of code declared with the `modifier`
 
 For example, `onlyOwner` restricts function execution to the contract owner, while `nonReentrant` helps prevent reentrancy attacks. A **reentrancy attack** occurs when an external contract calls back into the original contract before the initial function call finishes, potentially allowing repeated withdrawals or other unintended operations. `nonReentrant` is not a built-in Solidity keyword; it is a modifier provided by OpenZeppelin's `ReentrancyGuard` contract that prevents reentrant calls to functions protected by the same guard.
 
-![Reentrancy attack](reentrancy.svg)
+![Reentrancy attack](/image/reentrancy.svg)
 
 ### 5.1 Basic example: `onlyOwner`
 
