@@ -162,6 +162,8 @@ contract Derived is Base {
 
 A **function modifier** is a reusable block of code declared with the `modifier` keyword. It can check conditions and execute code before or after a function body runs. Modifiers are commonly used for access control and reentrancy protection.
 
+For example, `onlyOwner` restricts function execution to the contract owner, while `nonReentrant` prevents reentrancy attacks, where an external contract calls back into a protected contract before the original execution finishes. `nonReentrant` is not a built-in Solidity keyword; it is a modifier provided by OpenZeppelin's `ReentrancyGuard` contract.
+
 ### 5.1 Basic example: `onlyOwner`
 
 ```solidity
