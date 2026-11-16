@@ -1,7 +1,7 @@
 # Web3 for Sustainable Development
 ## Peer-to-Peer Energy Trading and Tradable Mobility Credits
 
-**Course handout | Undergraduate Management Information Systems | November 2026**
+Frank Chuang
 
 ### Learning objectives
 
@@ -361,31 +361,31 @@ flowchart TB
 
 ## P2P energy trading
 
-**[1]** International Renewable Energy Agency (IRENA). (2020). *Innovation landscape brief: Peer-to-peer electricity trading*. Illustrated overview and business-model discussion.  
+**[1]** International Renewable Energy Agency (IRENA). (2020). *Innovation landscape brief: Peer-to-peer electricity trading*. Illustrated overview and business-model discussion.
 https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2020/Jul/IRENA_Peer-to-peer_electricity_trading_2020.pdf
 
-**[2]** Enjoyelec. *Understanding Peer-to-Peer Energy Trading*. Introductory website.  
+**[2]** Enjoyelec. *Understanding Peer-to-Peer Energy Trading*. Introductory website.
 https://www.enjoyelec.net/understanding-peer-to-peer-energy-trading/
 
-**[3]** *EnergyAuction: IoT-Blockchain Architecture for Local Peer-to-Peer Energy Trading in a Microgrid*. (2023). *Sustainability, 15*(17), 13203. Architecture diagrams and implementation discussion.  
+**[3]** *EnergyAuction: IoT-Blockchain Architecture for Local Peer-to-Peer Energy Trading in a Microgrid*. (2023). *Sustainability, 15*(17), 13203. Architecture diagrams and implementation discussion.
 https://www.mdpi.com/2071-1050/15/17/13203
 
-**Video A (instructor-provided):** https://www.youtube.com/watch?v=XuTbY777k48  
+**Video A (instructor-provided):** https://www.youtube.com/watch?v=XuTbY777k48
 **Video B (instructor-provided):** https://www.youtube.com/watch?v=ISoTNe-0yX8
 
 ## Tradable mobility credits
 
-**[4]** metaCCAZE. *Amsterdam Tests Fair Mobility with UMIX Use Case*. Project and pilot overview.  
+**[4]** metaCCAZE. *Amsterdam Tests Fair Mobility with UMIX Use Case*. Project and pilot overview.
 https://www.metaccaze-project.eu/amsterdam-tests-fair-mobility-with-umix-use-case/
 
-**[5]** Bagloee, S. A., et al. (2019). *Tradable mobility permit with Bitcoin and Ethereum – A blockchain application in transportation*. *Internet of Things, 8*, 100103.  
-https://www.sciencedirect.com/science/article/abs/pii/S2542660519302240  
+**[5]** Bagloee, S. A., et al. (2019). *Tradable mobility permit with Bitcoin and Ethereum – A blockchain application in transportation*. *Internet of Things, 8*, 100103.
+https://www.sciencedirect.com/science/article/abs/pii/S2542660519302240
 Author-hosted PDF: https://tavana.us/publications/BITCOIN-IOT.pdf
 
-**[6]** *The MobilityCoin System*. (2022). *Frontiers in Future Transportation*. Illustrated conceptual and operational framework.  
+**[6]** *The MobilityCoin System*. (2022). *Frontiers in Future Transportation*. Illustrated conceptual and operational framework.
 https://www.frontiersin.org/journals/future-transportation/articles/10.3389/ffutr.2022.914496/full
 
-**[7]** Instructor-provided ScienceDirect article (2026). Bibliographic metadata and detailed findings not independently verified in this handout.  
+**[7]** Instructor-provided ScienceDirect article (2026). Bibliographic metadata and detailed findings not independently verified in this handout.
 https://www.sciencedirect.com/science/article/pii/S0965856426004763
 
 ### Notes on source use
