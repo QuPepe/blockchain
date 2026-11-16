@@ -1,7 +1,7 @@
 # Web3 for Sustainable Development
 ## Peer-to-Peer Energy Trading and Tradable Mobility Credits
 
-Frank Chuang
+**Frank Chuang**
 
 ### Learning objectives
 
@@ -20,7 +20,7 @@ After this lesson, students should be able to:
 
 ## 1. What is P2P energy trading?
 
-Traditional electricity markets typically connect large generators, utilities, and consumers. The expansion of rooftop photovoltaics (PV), home batteries, electric vehicles, and smart meters enables some consumers to become **prosumers**: people or organizations that both produce and consume electricity.
+Traditional electricity markets typically involve large power generators, electricity utilities (companies responsible for electricity supply, networks, or retail services), and end consumers. The expansion of rooftop photovoltaics (PV), home batteries, electric vehicles, and smart meters enables some consumers to become **prosumers**: people or organizations that both produce and consume electricity.
 
 **Peer-to-peer (P2P) energy trading** allows prosumers and consumers to agree on the sale and purchase of electricity quantities (or associated contractual rights) for specified periods, usually using a digital platform. Trading can be coordinated by a central operator, a consortium, or a blockchain-based system. **Blockchain is optional, not inherent to P2P trading.** [1–3]
 
@@ -188,6 +188,49 @@ Potential blockchain functions include shared audit trails, programmable trade e
 - **Enjoyelec:** Accessible online explanation of how P2P trading works. [2]
 - **EnergyAuction (2023):** IoT–blockchain architecture for local trading in a microgrid, with technical diagrams. [3]
 - **Videos supplied for classroom viewing:** https://www.youtube.com/watch?v=XuTbY777k48 and https://www.youtube.com/watch?v=ISoTNe-0yX8. Video content should be checked before assigning a specific learning objective.
+
+---
+
+## 5A. Taiwan case study: Is residential P2P energy trading possible?
+
+**Short answer:** Taiwan permits certain forms of renewable-electricity sales, direct supply, and **wheeling** (using the public grid to deliver electricity under an eligible commercial arrangement). However, this should **not** be confused with an open residential P2P marketplace in which any household can freely sell surplus electricity to any neighbor through an app or smart contract.
+
+### The main barrier: regulation and market design, not the absence of a smart grid
+
+Taiwan already has smart-grid infrastructure, including advanced metering infrastructure (AMI), digital grid monitoring, renewable-energy integration, and grid-dispatch systems. Nevertheless, **having smart meters does not itself confer a legal right to sell electricity**. Residential P2P trading also requires rules for seller eligibility, licensing, grid access, network charges, balancing, settlement, metering data, consumer protection, and dispute resolution.
+
+| Dimension | Taiwan's position | Implication for residential P2P trading |
+|---|---|---|
+| **Regulatory framework** | Renewable-electricity transactions are permitted through specified legal channels; ordinary household-to-household retail trading is not generally an open market. | Market access and seller eligibility are key constraints. |
+| **Market design** | Renewable-electricity sales and grid wheeling exist, but a universal neighbor-to-neighbor matching and settlement framework is not established. | Pricing, balancing, network fees, and consumer protection require explicit rules. |
+| **Smart-grid infrastructure** | Smart meters and grid digitization are being deployed, but capabilities and integration vary. | Existing infrastructure offers a foundation; P2P-grade data access and integration would still be needed. |
+| **Blockchain** | A blockchain-based trading platform could be developed technically. | It cannot replace licensing, verified metering, or the physical grid operator. |
+
+### Three different transaction models
+
+1. **Renewable-electricity trading and wheeling:** Eligible renewable generators or electricity retailers sell electricity under regulated arrangements, with delivery/accounting through the grid. **Possible in Taiwan subject to applicable rules.**
+2. **Direct supply:** An eligible renewable generator supplies a user through an authorized direct line. **Possible subject to legal and technical conditions.**
+3. **Unrestricted residential P2P trading:** Household A freely sells 5 kWh to household B through an app, with self-determined pricing and settlement. **Not a generally available retail market arrangement in Taiwan.**
+
+### Example: A solar-powered home and a nearby university
+
+A homeowner with rooftop solar panels might wish to sell 5 kWh to a university. A blockchain smart contract could record a proposed sale, but it would **not** make the transaction lawful or guarantee that those particular electrons physically reach the university. A real transaction would need an eligible seller or retailer, compliant metering, applicable grid and settlement arrangements, and any necessary approvals.
+
+### Possible classroom or research implementations
+
+- **Simulation:** Build a Solidity-based marketplace with synthetic meter readings and hypothetical prices; no actual electricity sale occurs.
+- **Campus microgrid research:** Model local solar generation, batteries, demand response, and allocation; distinguish internal energy management from legally authorized retail sales.
+- **Integration with licensed participants:** Investigate how blockchain might improve auditable metering, renewable-energy claims, or settlement without replacing regulated electricity-market functions.
+
+**Teaching takeaway:** *The main barriers to open residential P2P energy trading in Taiwan are regulatory and market-design constraints, rather than the complete absence of smart-grid infrastructure.* This does **not** mean that the existing grid is ready for nationwide P2P trading without further technical work.
+
+**Official resources for regulatory verification:**
+
+- Taiwan's **Electricity Act (電業法)**, particularly the provisions governing renewable-electricity supply and wheeling: [Ministry of Economic Affairs / Laws and Regulations Database](https://law.moea.gov.tw/).
+- **Taiwan Renewable Energy Certificate (T-REC) Center**, renewable-energy trading and matching information: https://www.trec.org.tw/
+- **Taiwan Power Company (Taipower)**, smart-grid and AMI program information: https://www.taipower.com.tw/
+
+*Regulations and program coverage change. Verify the latest legal text and market rules before describing a proposed real-world transaction as permissible.*
 
 ---
 
@@ -361,32 +404,29 @@ flowchart TB
 
 ## P2P energy trading
 
-**[1]** International Renewable Energy Agency (IRENA). (2020). *Innovation landscape brief: Peer-to-peer electricity trading*. Illustrated overview and business-model discussion.
+**[1]** International Renewable Energy Agency (IRENA). (2020). *Innovation landscape brief: Peer-to-peer electricity trading*. Illustrated overview and business-model discussion.  
 https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2020/Jul/IRENA_Peer-to-peer_electricity_trading_2020.pdf
 
-**[2]** Enjoyelec. *Understanding Peer-to-Peer Energy Trading*. Introductory website.
+**[2]** Enjoyelec. *Understanding Peer-to-Peer Energy Trading*. Introductory website.  
 https://www.enjoyelec.net/understanding-peer-to-peer-energy-trading/
 
-**[3]** *EnergyAuction: IoT-Blockchain Architecture for Local Peer-to-Peer Energy Trading in a Microgrid*. (2023). *Sustainability, 15*(17), 13203. Architecture diagrams and implementation discussion.
+**[3]** *EnergyAuction: IoT-Blockchain Architecture for Local Peer-to-Peer Energy Trading in a Microgrid*. (2023). *Sustainability, 15*(17), 13203. Architecture diagrams and implementation discussion.  
 https://www.mdpi.com/2071-1050/15/17/13203
 
-**Video A (instructor-provided):** https://www.youtube.com/watch?v=XuTbY777k48
+**Video A (instructor-provided):** https://www.youtube.com/watch?v=XuTbY777k48  
 **Video B (instructor-provided):** https://www.youtube.com/watch?v=ISoTNe-0yX8
 
 ## Tradable mobility credits
 
-**[4]** metaCCAZE. *Amsterdam Tests Fair Mobility with UMIX Use Case*. Project and pilot overview.
+**[4]** metaCCAZE. *Amsterdam Tests Fair Mobility with UMIX Use Case*. Project and pilot overview.  
 https://www.metaccaze-project.eu/amsterdam-tests-fair-mobility-with-umix-use-case/
 
-**[5]** Bagloee, S. A., et al. (2019). *Tradable mobility permit with Bitcoin and Ethereum – A blockchain application in transportation*. *Internet of Things, 8*, 100103.
-https://www.sciencedirect.com/science/article/abs/pii/S2542660519302240
+**[5]** Bagloee, S. A., et al. (2019). *Tradable mobility permit with Bitcoin and Ethereum – A blockchain application in transportation*. *Internet of Things, 8*, 100103.  
+https://www.sciencedirect.com/science/article/abs/pii/S2542660519302240  
 Author-hosted PDF: https://tavana.us/publications/BITCOIN-IOT.pdf
 
-**[6]** *The MobilityCoin System*. (2022). *Frontiers in Future Transportation*. Illustrated conceptual and operational framework.
+**[6]** *The MobilityCoin System*. (2022). *Frontiers in Future Transportation*. Illustrated conceptual and operational framework.  
 https://www.frontiersin.org/journals/future-transportation/articles/10.3389/ffutr.2022.914496/full
-
-**[7]** Instructor-provided ScienceDirect article (2026). Bibliographic metadata and detailed findings not independently verified in this handout.
-https://www.sciencedirect.com/science/article/pii/S0965856426004763
 
 ### Notes on source use
 
