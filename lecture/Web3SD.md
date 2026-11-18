@@ -281,7 +281,9 @@ A blockchain may make cross-organization records auditable, but it does **not** 
 
 **State of practice:** Real congestion charges operate in several cities, and mobility-credit pilots and research experiments exist. However, those facts do not establish that a full-scale **blockchain-based, tradable mobility-credit** scheme has become standard municipal infrastructure.
 
-## 6. Classroom exercise: design a token market
+---
+
+# Part III — Classroom Rxercise: Design a Token Market
 
 **Teams:** Choose either an apartment-building solar energy market or a city mobility-credit market. In 20–30 minutes, propose:
 
@@ -296,7 +298,7 @@ A blockchain may make cross-organization records auditable, but it does **not** 
 
 ---
 
-# References and Visual Learning Resources
+# References
 
 ## P2P energy trading
 
