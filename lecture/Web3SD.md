@@ -192,14 +192,6 @@ Traffic congestion, local air pollution, greenhouse gas emissions, and road scar
 
 A **Tradable Mobility Credit (TMC)** or **Tradable Mobility Permit** system allocates a limited quantity of mobility-related rights to eligible participants. Certain travel activities require credits; participants who need more can buy them from participants who use less. The precise meaning of a credit—road entry, distance, time, emissions, or zone access—depends on the scheme's rules. [4–7]
 
-**Do not confuse:**
-
-- **Mobility on Demand (MoD):** Transport offered in response to passenger demand (e.g., ride-hailing).
-- **Mobility as a Service (MaaS):** Integrated planning and payment across transport services.
-- **Congestion pricing:** Charging money to use congested roads or zones.
-- **Tradable mobility credits:** A capped and potentially tradable allocation of mobility rights.
-- **Blockchain-based TMC:** A possible implementation using a distributed ledger and smart contracts; blockchain is not a prerequisite.
-
 ## 2. A simple cap-and-trade example
 
 Suppose a city gives each eligible resident **100 credits per month**. A hypothetical road-use policy requires credits for selected trips:
@@ -308,17 +300,17 @@ A blockchain may make cross-organization records auditable, but it does **not** 
 
 ## P2P energy trading
 
-**[1]** International Renewable Energy Agency (IRENA). (2020). *Innovation landscape brief: Peer-to-peer electricity trading*. Illustrated overview and business-model discussion.
+**[1]** International Renewable Energy Agency (IRENA). (2020). *Innovation landscape Brief: Peer-to-Peer Electricity Trading*.
 https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2020/Jul/IRENA_Peer-to-peer_electricity_trading_2020.pdf
 
-**[2]** Enjoyelec. *Understanding Peer-to-Peer Energy Trading*. Introductory website.
+**[2]** Enjoyelec. *Understanding Peer-to-Peer Energy Trading*.
 https://www.enjoyelec.net/understanding-peer-to-peer-energy-trading/
 
-**[3]** *EnergyAuction: IoT-Blockchain Architecture for Local Peer-to-Peer Energy Trading in a Microgrid*. (2023). *Sustainability, 15*(17), 13203. Architecture diagrams and implementation discussion.
+**[3]** *EnergyAuction: IoT-Blockchain Architecture for Local Peer-to-Peer Energy Trading in a Microgrid*. (2023). *Sustainability, 15*(17), 13203.
 https://www.mdpi.com/2071-1050/15/17/13203
 
-**Video A (instructor-provided):** https://www.youtube.com/watch?v=XuTbY777k48
-**Video B (instructor-provided):** https://www.youtube.com/watch?v=ISoTNe-0yX8
+**Video A:** https://www.youtube.com/watch?v=XuTbY777k48
+**Video B:** https://www.youtube.com/watch?v=ISoTNe-0yX8
 
 ## Tradable mobility credits
 
