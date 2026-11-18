@@ -186,7 +186,7 @@ Potential blockchain functions include shared audit trails, programmable trade e
 
 # Part II — Tradable Mobility Credits
 
-## 6. What are tradable mobility credits?
+## 1. What are tradable mobility credits?
 
 Traffic congestion, local air pollution, greenhouse gas emissions, and road scarcity motivate policies that manage travel demand. Conventional tools include fuel taxes, parking fees, congestion charges, and vehicle restrictions.
 
@@ -200,7 +200,7 @@ A **Tradable Mobility Credit (TMC)** or **Tradable Mobility Permit** system allo
 - **Tradable mobility credits:** A capped and potentially tradable allocation of mobility rights.
 - **Blockchain-based TMC:** A possible implementation using a distributed ledger and smart contracts; blockchain is not a prerequisite.
 
-## 7. A simple cap-and-trade example
+## 2. A simple cap-and-trade example
 
 Suppose a city gives each eligible resident **100 credits per month**. A hypothetical road-use policy requires credits for selected trips:
 
@@ -222,7 +222,7 @@ flowchart TB
 
 **This is a teaching illustration, not an actual city policy.** Credits are not inherently cryptocurrencies, and one credit does not necessarily equal one kilometer. A city could charge different amounts by location, time, vehicle type, congestion level, or environmental impact.
 
-## 8. Why would cities use a tradable credit scheme?
+## 3. Why would cities use a tradable credit scheme?
 
 A TMC system borrows from **cap-and-trade** economics: set an aggregate allowance (the **cap**) and allow trading (the **market**) so that participants with higher willingness to pay can acquire more rights, while those who reduce travel can sell unused rights.
 
@@ -240,7 +240,7 @@ flowchart LR
 
 **Market design choices matter:** initial allocation, eligible population, cap size, pricing rules, market power safeguards, expiration, credit banking, exemptions, enforcement, and treatment of visitors and low-income travelers.
 
-## 9. Blockchain-based mobility-credit architecture
+## 4. Blockchain-based mobility-credit architecture
 
 ```mermaid
 flowchart TB
@@ -278,7 +278,7 @@ A blockchain may make cross-organization records auditable, but it does **not** 
 7. **Unequal digital access:** Users without smartphones, banking access, or technical literacy may be disadvantaged.
 8. **Blockchain-specific risks:** Irreversible errors, wallet loss, smart-contract vulnerabilities, governance complexity, and unnecessary public exposure of transaction metadata.
 
-## 10. Real-world evidence versus proposed systems
+## 5. Real-world evidence versus proposed systems
 
 | Example | What it illustrates | Important qualification |
 |---|---|---|
@@ -289,53 +289,7 @@ A blockchain may make cross-organization records auditable, but it does **not** 
 
 **State of practice:** Real congestion charges operate in several cities, and mobility-credit pilots and research experiments exist. However, those facts do not establish that a full-scale **blockchain-based, tradable mobility-credit** scheme has become standard municipal infrastructure.
 
----
-
-# Part III — Comparative Analysis
-
-## 11. Benefits and drawbacks side by side
-
-| Dimension | P2P energy trading | Tradable mobility credits |
-|---|---|---|
-| **Primary sustainability objective** | Encourage distributed renewable energy and efficient coordination of electricity supply and demand. | Manage road scarcity, congestion, and potentially transport emissions. |
-| **Scarce resource** | Electricity supplied during a specific time interval, plus network capacity. | Policy-defined mobility or road-use allowances. |
-| **Potential economic benefit** | Better matching of seller revenue and buyer cost. | Flexible allocation of limited travel rights; income from unused credits. |
-| **Potential environmental benefit** | Greater renewable participation and better local energy coordination. | Reduced or shifted high-impact vehicle travel if the cap and incentives work. |
-| **Main equity risk** | Exclusion of households without solar, capital, or digital access. | Disproportionate burdens on people with limited travel alternatives. |
-| **Main infrastructure dependency** | Electricity grid, meters, balancing, and energy-market rules. | Transport network, trip verification, enforcement, and public transport alternatives. |
-| **Main data concern** | Detailed household electricity-use patterns. | Location and travel histories. |
-| **Blockchain contribution** | Shared trade records and automated settlement. | Issuance, transfer, spending, and auditing of credits. |
-| **Why blockchain may be unnecessary** | A trusted market operator can use a conventional database. | A transport authority can manage accounts and transfers centrally. |
-
-## 12. A shared conceptual framework
-
-Both systems can be understood through five layers:
-
-```mermaid
-flowchart TB
-    GOAL[Sustainability goal] --> RULES[Institutional rules and market design]
-    RULES --> BEHAVIOR[Participant incentives and behavior]
-    BEHAVIOR --> PHYSICAL[Physical outcomes: grid or traffic network]
-    RULES --> DIGITAL[Digital infrastructure: meters, sensors, ledgers, smart contracts]
-    DIGITAL --> VERIFY[Measurement, verification, and settlement]
-    VERIFY -.-> RULES
-    PHYSICAL --> EVAL[Evaluate environmental, economic, and equity impacts]
-```
-
-**Core lesson:** A token transaction is an **accounting or institutional event**, not proof of a physical outcome. Environmental gains must be measured in the grid or transport network, not inferred from the mere existence of blockchain transactions.
-
-## 13. Discussion questions
-
-1. If House B purchases 10 kWh from House A, does that mean electricity physically travels directly from A to B? Explain.
-2. Under what conditions might local energy trading reduce electrical losses? Why is geographic proximity insufficient?
-3. Who should pay grid fees and balancing costs in a P2P energy market?
-4. How could a mobility-credit scheme protect travelers who have no viable alternative to driving?
-5. Should mobility credits expire, be bankable, or be tradable across neighborhoods? What trade-offs follow?
-6. Which application has a stronger case for blockchain rather than a centralized database? Defend your answer.
-7. How would you prevent an oracle from reporting false meter readings or false trip records?
-8. What evidence would you require before claiming either application reduces CO₂ emissions?
-
-## 14. Classroom exercise: design a token market
+## 6. Classroom exercise: design a token market
 
 **Teams:** Choose either an apartment-building solar energy market or a city mobility-credit market. In 20–30 minutes, propose:
 
