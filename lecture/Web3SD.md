@@ -182,13 +182,6 @@ Potential blockchain functions include shared audit trails, programmable trade e
 7. **Blockchain-specific costs:** Smart-contract bugs, oracle manipulation, transaction costs, governance disputes, and limited throughput may outweigh decentralization benefits.
 8. **Environmental claims need evidence:** A recorded “local” or “green” transaction does not automatically imply lower physical losses or emissions.
 
-### Real-world and visual resources
-
-- **IRENA (2020):** Illustrated introduction to P2P electricity trading, business models, and implementation challenges. [1]
-- **Enjoyelec:** Accessible online explanation of how P2P trading works. [2]
-- **EnergyAuction (2023):** IoT–blockchain architecture for local trading in a microgrid, with technical diagrams. [3]
-- **Videos supplied for classroom viewing:** https://www.youtube.com/watch?v=XuTbY777k48 and https://www.youtube.com/watch?v=ISoTNe-0yX8. Video content should be checked before assigning a specific learning objective.
-
 ---
 
 # Part II — Tradable Mobility Credits
