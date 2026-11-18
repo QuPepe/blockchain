@@ -314,19 +314,11 @@ https://www.mdpi.com/2071-1050/15/17/13203
 
 ## Tradable mobility credits
 
-**[4]** metaCCAZE. *Amsterdam Tests Fair Mobility with UMIX Use Case*. Project and pilot overview.
+**[4]** metaCCAZE. *Amsterdam Tests Fair Mobility with UMIX Use Case*.
 https://www.metaccaze-project.eu/amsterdam-tests-fair-mobility-with-umix-use-case/
 
 **[5]** Bagloee, S. A., et al. (2019). *Tradable mobility permit with Bitcoin and Ethereum – A blockchain application in transportation*. *Internet of Things, 8*, 100103.
 https://www.sciencedirect.com/science/article/abs/pii/S2542660519302240
-Author-hosted PDF: https://tavana.us/publications/BITCOIN-IOT.pdf
 
-**[6]** *The MobilityCoin System*. (2022). *Frontiers in Future Transportation*. Illustrated conceptual and operational framework.
+**[6]** *The MobilityCoin System*. (2022). *Frontiers in Future Transportation*.
 https://www.frontiersin.org/journals/future-transportation/articles/10.3389/ffutr.2022.914496/full
-
-### Notes on source use
-
-- Diagrams in this handout are **original conceptual Mermaid diagrams**, not reproductions of the figures in the cited publications.
-- Check image rights and attribution requirements before copying figures from external articles into slides.
-- The numerical examples are **hypothetical**, not current market prices, legal entitlements, or municipal policy rules.
-- Local regulatory feasibility and project status should be rechecked before teaching them as current facts.
