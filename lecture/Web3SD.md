@@ -283,7 +283,7 @@ A blockchain may make cross-organization records auditable, but it does **not** 
 
 ---
 
-# Part III — Classroom Rxercise: Design a Token Market
+# Part III — Classroom Exercise: Design a Token Market
 
 **Teams:** Choose either an apartment-building solar energy market or a city mobility-credit market. In 20–30 minutes, propose:
 
